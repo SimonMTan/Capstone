@@ -72,7 +72,4 @@ def delete_post(id):
 
     db.session.delete(post)
     db.session.commit()
-    return {
-        "message": "Successfully deleted",
-        "statusCode": 200
-    }
+    return post.to_dict()

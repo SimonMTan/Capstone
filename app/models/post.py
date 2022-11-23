@@ -17,7 +17,7 @@ class Post(db.Model):
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
     post_user = db.relationship("User", back_populates="user_post")
-    post_comment = db.relationship("Comment", back_populates="comment_post")
+    post_comment = db.relationship("Comment", back_populates="comment_post",cascade="all, delete")
 
     def to_dict(self):
         return {

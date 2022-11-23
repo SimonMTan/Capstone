@@ -69,6 +69,4 @@ def delete_comment(id):
 
     db.session.delete(comment)
     db.session.commit()
-    return {
-        'message': 'Comment deleted'
-    }
+    return comment.to_dict()
