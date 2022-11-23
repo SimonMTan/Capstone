@@ -1,6 +1,6 @@
 from app.models import db, Comment, environment, SCHEMA
 
-def seed_posts():
+def seed_comments():
     comment1 = Comment(
         user_id=3,
         post_id=1,
@@ -23,7 +23,7 @@ def seed_posts():
     db.session.add(comment3)
     db.session.commit()
 
-def undo_posts():
+def undo_comments():
     if environment == "production":
         db.session.execute(f"TRUNCATE table {SCHEMA}.comments RESTART IDENTITY CASCADE;")
     else:
