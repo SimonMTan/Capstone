@@ -20,7 +20,7 @@ def seed_posts():
     )
 
     db.session.add(post1)
-    db.sesson.add(post2)
+    db.session.add(post2)
     db.session.add(post3)
     db.session.commit()
 
