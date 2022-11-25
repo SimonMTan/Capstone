@@ -28,4 +28,5 @@ class Post(db.Model):
             'post_video': self.post_video,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
+            'user': self.post_user.to_dict(),
         }

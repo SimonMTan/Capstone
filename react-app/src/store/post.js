@@ -28,8 +28,10 @@ const deletePost = (post) => ({
 //thunk
 export const getPostsThunk = () => async (dispatch) => {
     const response = await fetch('/api/posts')
+    console.log(response, 'this is responsesssss')
     if (response.ok) {
         const data = await response.json()
+        console.log(data, 'this is data from thunk')
         dispatch(getPosts(data))
         return data
     }
@@ -70,6 +72,7 @@ export const deletePostThunk = (info) => async (dispatch) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(info)
     })
+
     if(response.ok){
         const data = await response.json()
         dispatch(deletePost(data))
@@ -78,23 +81,29 @@ export const deletePostThunk = (info) => async (dispatch) => {
 }
 
 const initialState = {};
-export default function reducer(state = initialState, action) {
+export default function postReducer(state = initialState, action) {
     let newState;
     switch (action.type) {
         case GET_POSTS:
-            action.payload.forEach(post => {
-                newState[post.id] = post
+            newState = {...state}
+            // console.log(action.payload[0], 'this is action.payload')
+            console.log(action.payload , 'this is before Object.value')
+            let array = action.payload.posts
+            console.log(array, 'this is array')
+            array.forEach(postx => {
+                newState[postx.id] = postx
             })
+            console.log(newState, 'this is new state')
             return newState
         case CREATE_POST:
-            newState = {...state, [action.payload.id]: action.payload}
+            newState = {...state, [action.payload.post.id]: action.payload.post}
             return newState
         case EDIT_POST:
-            newState = {...state, [action.payload.id]: action.payload}
+            newState = {...state, [action.payload.post.id]: action.payload.post}
             return newState
         case DELETE_POST:
             newState = {...state}
-            delete newState[action.payload.id]
+            delete newState[action.payload.payload.id]
             return newState
         default:
             return state;

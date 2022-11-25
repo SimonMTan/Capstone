@@ -82,18 +82,18 @@ const initialState = {};
 const commentreducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
-        case GET_POSTS:
+        case GET_COMMENTS:
             action.payload.forEach(post => {
                 newState[post.id] = post
             })
             return newState
-        case CREATE_POST:
+        case CREATE_COMMENT:
             newState = {...state, [action.payload.id]: action.payload}
             return newState
-        case EDIT_POST:
+        case EDIT_COMMENT:
             newState = {...state, [action.payload.id]: action.payload}
             return newState
-        case DELETE_POST:
+        case DELETE_COMMENT:
             newState = {...state}
             delete newState[action.payload.id]
             return newState
@@ -102,3 +102,8 @@ const commentreducer = (state = initialState, action) => {
     }
 }
 export default commentreducer
+
+// const CREATE_COMMENT = 'comment/CREATE_COMMENT';
+// const GET_COMMENTS = 'comment/GET_COMMENTS';
+// const EDIT_COMMENT = 'comment/EDIT_COMMENT';
+// const DELETE_COMMENT = 'comment/DELETE_COMMENT';

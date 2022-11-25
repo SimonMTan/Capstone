@@ -17,7 +17,8 @@ post_routes = Blueprint('posts', __name__)
 @post_routes.route('/')
 # @login_required
 def posts():
-    posts = Post.query.all(Post.user_id == current_user.id)
+    posts = Post.query.all()
+    print(posts, '<<<<<<<<<<<<<<<<this is posts>>>>>>>>')
     return {"posts": [post.to_dict() for post in posts]}
 
 #Create a post
