@@ -3,51 +3,63 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { editPostThunk } from "../../store/post"
 
-const Editpost = () => {
+function Editpost ({id,post,setShowModal}) {
+    const dispatch = useDispatch()
+    console.log(post, 'this is post from editpost')
+    const [msg , setMsg] = useState(post.post_msg)
+    const [img , setImg] = useState(post.post_img)
+    const [video , setVideo] = useState(post.post_video)
+    const [validationErrors, setValidationErrors] = useState([]);
 
 
-const [msg , setMsg] = useState('')
-const [img , setImg] = useState('')
-const [video , setVideo] = useState('')
-const [validationErrors, setValidationErrors] = useState([]);
+    const user = useSelector(state => state.session.user);
 
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setShowModal(false)
+        const info = {msg:msg, img:img, video:video}
+        dispatch(editPostThunk(info,id))
+    }
 
-const user = useSelector(state => state.session.user);
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    const data = await dispatch(editPostThunk({msg, img, video}))
-}
+    useEffect(() => {
 
-useEffect(() => {
+    })
 
-})
+    if(!user)
+        return <Redirect to='/'/>
 
-if(!user)
-    return <Redirect to='/'/>
-
-return (
-    <div>
-        <form onSubmit={handleSubmit}>
-            <textarea
-            typeof="text" value={msg} onChange={(e) => setMsg(e.target.value)}>
-            </textarea>
-            {img ?
+    return (
+        <div>
+            <form onSubmit={handleSubmit}>
                 <div>
-                    <input
-                    type='file' value={img} onChange={(e) => setImg(e.target.value)}>
-                    </input>
+                    <textarea
+                    typeof="text" value={msg} onChange={(e) => setMsg(e.target.value)}>
+                    </textarea>
+                    <label>Message Link</label>
                 </div>
-            : null}
-            {video ?
+                {img ?
+                    <div>
+                        <input
+                        type='file' value={img} onChange={(e) => setImg(e.target.value)}>
+                        </input>
+                        <label>Image Link</label>
+                    </div>
+                : null}
+                {video ?
+                    <div>
+                        <input
+                        type='file' value={video} onChange={(e) => setVideo(e.target.value)}>
+                        </input>
+                        <label>Video Link</label>
+                    </div>
+                : null}
                 <div>
-                    <input
-                    type='file' value={video} onChange={(e) => setVideo(e.target.value)}>
-                    </input>
+                    <button type='submit'>Edit Post</button>
+                    <button onClick={() => setShowModal(false)}>Cancel</button>
                 </div>
-            : null}
-        </form>
-    </div>
-)
+            </form>
+        </div>
+    )
 
 }
 

@@ -1,6 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import {getPostsThunk} from '../store/post'
+import EditPostModal from "./Editpost";
+// import CreatePostModal from "./Createpost";
 
 
 function NewsFeed () {
@@ -19,12 +21,15 @@ function NewsFeed () {
 
     return (
         <div>
-            <div>
-
-            </div>
+            {/* <div>
+                <CreatePostModal/>
+            </div> */}
             <div>
                 {allposts.map((post) => (
                     <div key={post.id}>
+                        <div>
+                            <EditPostModal post={post} id={post.id}/>
+                        </div>
                         <div>
                             {post.user.id === user.id ?
                             <div>hello</div> :

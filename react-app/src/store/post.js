@@ -27,11 +27,11 @@ const deletePost = (post) => ({
 
 //thunk
 export const getPostsThunk = () => async (dispatch) => {
-    const response = await fetch('/api/posts')
-    console.log(response, 'this is responsesssss')
+    const response = await fetch('/api/posts/')
+    // console.log(response, 'this is responsesssss')
     if (response.ok) {
         const data = await response.json()
-        console.log(data, 'this is data from thunk')
+        // console.log(data, 'this is data from thunk')
         dispatch(getPosts(data))
         return data
     }
@@ -52,12 +52,13 @@ export const createPostThunk = (info) => async (dispatch) => {
     return
 }
 
-export const editPostThunk = (info) => async (dispatch) => {
-    const response = await fetch('/api/posts/', {
+export const editPostThunk = (info,id) => async (dispatch) => {
+    const response = await fetch(`/api/posts/${id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(info)
     })
+    console.log(response,info,id, 'this is response from thunk')
     if(response.ok){
         const data = await response.json()
         dispatch(editPost(data))
@@ -87,9 +88,9 @@ export default function postReducer(state = initialState, action) {
         case GET_POSTS:
             newState = {...state}
             // console.log(action.payload[0], 'this is action.payload')
-            console.log(action.payload , 'this is before Object.value')
+            // console.log(action.payload , 'this is before Object.value')
             let array = action.payload.posts
-            console.log(array, 'this is array')
+            // console.log(array, 'this is array')
             array.forEach(postx => {
                 newState[postx.id] = postx
             })

@@ -40,7 +40,7 @@ def create_post():
     return {'errors': validation_errors(form.errors)}, 401
 
 #Edit a post
-@post_routes.route('/', methods=['PUT'])
+@post_routes.route('/<int:id>', methods=['PUT'])
 def edit_post(id):
     post = Post.query.get(id)  # this is findbyPK , id is the post id
 
