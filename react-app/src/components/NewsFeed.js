@@ -28,7 +28,7 @@ function NewsFeed () {
                 {allposts.map((post) => (
                     <div key={post.id}>
                         <div>
-                            <EditPostModal post={post} id={post.id}/>
+                            <EditPostModal post={post} id={post.id} />
                         </div>
                         <div>
                             {post.user.id === user.id ?

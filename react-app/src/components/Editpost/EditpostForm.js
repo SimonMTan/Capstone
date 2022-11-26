@@ -3,12 +3,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { editPostThunk } from "../../store/post"
 
-function Editpost ({id,post,setShowModal}) {
+function Editpost ({id,post,setModalOpen}) {
     const dispatch = useDispatch()
     console.log(post, 'this is post from editpost')
     const [msg , setMsg] = useState(post.post_msg)
     const [img , setImg] = useState(post.post_img)
     const [video , setVideo] = useState(post.post_video)
+    // const [showModal, setShowModal] = useState(setShowModal);
     const [validationErrors, setValidationErrors] = useState([]);
 
 
@@ -16,20 +17,21 @@ function Editpost ({id,post,setShowModal}) {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setShowModal(false)
+        setModalOpen(false)
         const info = {msg:msg, img:img, video:video}
         dispatch(editPostThunk(info,id))
     }
 
-    useEffect(() => {
+    // useEffect(() => {
 
-    })
+    // })
 
     if(!user)
         return <Redirect to='/'/>
 
     return (
         <div>
+            <h1>hello</h1>
             <form onSubmit={handleSubmit}>
                 <div>
                     <textarea
@@ -55,7 +57,7 @@ function Editpost ({id,post,setShowModal}) {
                 : null}
                 <div>
                     <button type='submit'>Edit Post</button>
-                    <button onClick={() => setShowModal(false)}>Cancel</button>
+                    <button onClick={() => setModalOpen(false)}>Cancel</button>
                 </div>
             </form>
         </div>
