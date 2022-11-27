@@ -64,11 +64,10 @@ export const editCommentThunk = (info) => async (dispatch) => {
     return
 }
 
-export const deleteCommentThunk = (info) => async (dispatch) => {
-    const response = await fetch('/api/comments/', {
-        method: 'DELETE',
-        headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify(info)
+export const deleteCommentThunk = (id) => async (dispatch) => {
+    const response = await fetch(`/api/comments/${id}`, {
+        method: 'DELETE'
+
     })
     if(response.ok){
         const data = await response.json()

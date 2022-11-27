@@ -55,7 +55,7 @@ def edit_comment(id):
     return {'errors': validation_errors(form.errors)}, 401
 
 #delete a comment for a post, id is the comment id
-@comment_routes.route('/', methods=['DELETE'])
+@comment_routes.route('/<int:id>', methods=['DELETE'])
 def delete_comment(id):
 
     comment = Comment.query.get(id)

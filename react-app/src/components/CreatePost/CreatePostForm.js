@@ -1,7 +1,7 @@
 import { useState ,useEffect} from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-
+import {createPostThunk} from '../../store/post'
 
 function CreatePost ({setModalOpen}) {
     const dispatch = useDispatch()
@@ -17,6 +17,8 @@ function CreatePost ({setModalOpen}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setModalOpen(false)
+        const info = {msg:msg, img:img, video:video}
+        dispatch(createPostThunk(info))
     }
 
     return(

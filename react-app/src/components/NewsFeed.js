@@ -4,7 +4,7 @@ import {getPostsThunk} from '../store/post'
 import EditPostModal from "./Editpost";
 import {deletePostThunk} from '../store/post'
 import CreatePostModal from "./CreatePost";
-
+import './NewsFeed.css'
 
 function NewsFeed () {
     const dispatch = useDispatch();
@@ -13,6 +13,7 @@ function NewsFeed () {
     const allposts = Object.values(posts)
     console.log(allposts, 'this is allposts')
     const comment = useSelector(state => state.comment);
+    const[showoption, setShowoption] = useState(false)
 
     console.log(comment)
     useEffect(() => {
@@ -45,13 +46,33 @@ function NewsFeed () {
                             </source>
                         </video>: null
                         }
+                        <div>like </div><div>comment</div>
                         <div>
                             {post.comments.map((com) => (
                                 <div key={com.id}>
+                                    {com.comment_user.profile_photo ?
+                                        <img src={com.comment_user.profile_photo} ></img> :
+                                        <img className='profile_pic' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'></img>
+                                    }
+                                    <div>{com.comment_user.first_name}</div>
+                                    <div>{com.comment_user.last_name}</div>
                                     <div>{com.comment}</div>
+                                    {com.user_id === user.id ?
+                                    <div onClick={()=>setShowoption(!showoption)}>...</div>
+                                    :null}
+                                    {showoption ?
+                                    <div>
+                                        <div>edit comment form</div>
+                                        <div>delete comment</div>
+                                    </div>
+                                     : null}
                                 </div>
                             ))
                             }
+                        </div>
+                        <div>
+                            <h3>write a comment</h3>
+
                         </div>
                     </div>
                 ))}
