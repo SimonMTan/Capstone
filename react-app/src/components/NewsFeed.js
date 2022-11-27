@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import {getPostsThunk} from '../store/post'
 import EditPostModal from "./Editpost";
 import {deletePostThunk} from '../store/post'
-// import CreatePostModal from "./Createpost";
+import CreatePostModal from "./CreatePost";
 
 
 function NewsFeed () {
@@ -22,9 +22,9 @@ function NewsFeed () {
 
     return (
         <div>
-            {/* <div>
+            <div>
                 <CreatePostModal/>
-            </div> */}
+            </div>
             <div>
                 {allposts.map((post) => (
                     <div key={post.id}>
@@ -33,11 +33,6 @@ function NewsFeed () {
                             <div><EditPostModal post={post} id={post.id} /></div>
                             <button onClick={()=>{dispatch(deletePostThunk(post.id)).then(()=>dispatch(getPostsThunk())) }}>DELETE</button>
                         </div>: null}
-                        {/* <div>
-                            {post.user.id === user.id ?
-                            <div>hello</div> :
-                            <div>hi</div>}
-                        </div> */}
                         <div>
                             <div>{post.user.first_name}</div>
                             <div>{post.user.last_name}</div>

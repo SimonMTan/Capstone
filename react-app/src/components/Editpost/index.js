@@ -3,7 +3,6 @@ import { Modal } from '../../context/Modal'
 import Editpost from './EditpostForm'
 // import './EditTrackForm.css'
 
-
 export default function EditPostModal({post, id}) {
     const [modalOpen, setModalOpen] = useState(false)
 
