@@ -45,6 +45,14 @@ function NewsFeed () {
                             </source>
                         </video>: null
                         }
+                        <div>
+                            {post.comments.map((com) => (
+                                <div key={com.id}>
+                                    <div>{com.comment}</div>
+                                </div>
+                            ))
+                            }
+                        </div>
                     </div>
                 ))}
             </div>
