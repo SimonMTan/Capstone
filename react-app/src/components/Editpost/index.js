@@ -1,31 +1,10 @@
-// import React, { useState, useEffect } from "react";
-// import { Modal } from '../../context/Modal'
-// import EditPost from './EditpostForm'
-
-// function EditPostModal ({post,id}){
-//   const [showModal, setShowModal] = useState(false);
-
-//   return (
-//     <>
-//       <button onClick={() => setShowModal(true)}>Edit</button>
-//       {showModal && (
-//         <Modal onClose={() => setShowModal(false)}>
-//           <EditPost id={id} post={post} setShowModal={setShowModal}/>
-//         </Modal>
-//       )}
-//     </>
-//   );
-// }
-
-// export default EditPostModal
-
 import React, { useState } from 'react'
 import { Modal } from '../../context/Modal'
 import Editpost from './EditpostForm'
 // import './EditTrackForm.css'
 
 
-export default function EditPostModal() {
+export default function EditPostModal({post, id}) {
     const [modalOpen, setModalOpen] = useState(false)
 
 
@@ -33,7 +12,7 @@ export default function EditPostModal() {
         <div>
             <button className='editButton' onClick={() => setModalOpen(true)}>Edit</button>
             {modalOpen && (<Modal onClose={()=> setModalOpen(false)}>
-                <Editpost setModalOpen={setModalOpen}/>
+                <Editpost post={post} id={id} setModalOpen={setModalOpen}/>
             </Modal>)}
         </div>
     )

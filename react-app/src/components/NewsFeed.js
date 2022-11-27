@@ -2,6 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import {getPostsThunk} from '../store/post'
 import EditPostModal from "./Editpost";
+import {deletePostThunk} from '../store/post'
 // import CreatePostModal from "./Createpost";
 
 
@@ -27,14 +28,16 @@ function NewsFeed () {
             <div>
                 {allposts.map((post) => (
                     <div key={post.id}>
+                        {post.user.id === user.id ?
                         <div>
-                            <EditPostModal post={post} id={post.id} />
-                        </div>
-                        <div>
+                            <div><EditPostModal post={post} id={post.id} /></div>
+                            <button onClick={()=>{dispatch(deletePostThunk(post.id)).then(()=>dispatch(getPostsThunk())) }}>DELETE</button>
+                        </div>: null}
+                        {/* <div>
                             {post.user.id === user.id ?
                             <div>hello</div> :
                             <div>hi</div>}
-                        </div>
+                        </div> */}
                         <div>
                             <div>{post.user.first_name}</div>
                             <div>{post.user.last_name}</div>

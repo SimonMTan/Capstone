@@ -61,7 +61,7 @@ def edit_post(id):
         return post.to_dict()
 
 #Delete a post
-@post_routes.route('/', methods=['DELETE'])
+@post_routes.route('/<int:id>', methods=['DELETE'])
 def delete_post(id):
     post = Post.query.get(id)
 
