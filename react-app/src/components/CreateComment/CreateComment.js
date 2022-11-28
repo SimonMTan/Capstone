@@ -1,19 +1,20 @@
 import { useState ,useEffect} from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import {createCommentThunk} from '../../store/comment'
-
+import { getPostsThunk } from "../../store/post"
 export default function CreateComments({post}){
     const dispatch = useDispatch()
     const [comment, setComment] = useState('')
     // console.log(comment,post.id, 'thisisinsidecomment')
 
     useEffect(() => {},[])
-    
+
     const handleSubmit2 = async(e) => {
         e.preventDefault();
         const info = {comment:comment}
-        await dispatch(createCommentThunk(info,post.id))
+        await dispatch(createCommentThunk(info,post.id)).then(await dispatch(getPostsThunk()))
         // console.log(comment,post.id, '##thisisinsidecomment22222')
+        setComment('')
     }
 
     return (
