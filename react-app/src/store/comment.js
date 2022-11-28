@@ -52,8 +52,9 @@ export const createCommentThunk = (info,id) => async (dispatch) => {
     return
 }
 
-export const editCommentThunk = (info) => async (dispatch) => {
-    const response = await fetch('/api/comments/', {
+export const editCommentThunk = (info,id) => async (dispatch) => {
+    console.log(info,id, 'thisisinsidecommentthunkedit')
+    const response = await fetch(`/api/comments/${id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(info)

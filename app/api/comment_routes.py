@@ -38,7 +38,7 @@ def create_comment(id): # id is the post id
     return {'errors': validation_errors(form.errors)}, 401
 
 #Edit a comment for a post,
-@comment_routes.route('/', methods=['PUT'])
+@comment_routes.route('/<int:id>', methods=['PUT'])
 def edit_comment(id):
     comment = Comment.query.get(id)
 
@@ -52,7 +52,7 @@ def edit_comment(id):
     form['csrf_token'].data = request.cookies['csrf_token']
 
     if form.validate_on_submit():
-        comment.comment = form.data['comment']
+        comment.comment = form.comment.data
         db.session.commit()
         return comment.to_dict()
     return {'errors': validation_errors(form.errors)}, 401

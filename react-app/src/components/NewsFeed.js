@@ -6,6 +6,7 @@ import {deletePostThunk} from '../store/post'
 import CreatePostModal from "./CreatePost";
 import CreateComments from "./CreateComment/CreateComment";
 import DeleteComment from "./DeleteComment/DeleteComment";
+import EditComment from "./EditComment/EditComment";
 import './NewsFeed.css'
 
 function NewsFeed () {
@@ -20,10 +21,16 @@ function NewsFeed () {
     // console.log(allposts, 'this is allposts')
     const comment = useSelector(state => state.comment);
     const[showoption, setShowoption] = useState(false)
+    const[showEdit,setShowEdit] = useState(true)
 
+    const editComment = () => {
+        setShowEdit(false)
+        setShowoption(false)
+    }
     // console.log(comment)
     useEffect(() => {
         dispatch(getPostsThunk());
+        // setShowEdit(true)
     },[dispatch])
 
 
@@ -62,13 +69,13 @@ function NewsFeed () {
                                     }
                                     <div>{com.comment_user.first_name}</div>
                                     <div>{com.comment_user.last_name}</div>
-                                    <div>{com.comment}</div>
+                                    {showEdit ? <div>{com.comment}</div> : <EditComment comment={com.comment} id={com.id} />}
                                     {com.user_id === user.id ?
                                     <div onClick={()=>setShowoption(!showoption)} >...</div>
                                     :null}
                                     {showoption ?
                                     <div>
-                                        <div>edit comment form</div>
+                                        <div onClick={editComment}>Edit</div>
                                         <DeleteComment id={com.id}/>
                                     </div>
                                      : null}
