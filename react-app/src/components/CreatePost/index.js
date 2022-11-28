@@ -2,13 +2,14 @@ import React, { useState } from 'react'
 import { Modal } from '../../context/Modal'
 import CreatePost from './CreatePostForm'
 
-export default function CreatePostModal() {
+export default function CreatePostModal({user}) {
     const [modalOpen, setModalOpen] = useState(false)
 
 
     return (
         <div>
-            <button className='editButton' onClick={() => setModalOpen(true)}>Create Post</button>
+            <img src={user.profile_photo}></img>
+            <div onClick={() => setModalOpen(true)}>What's on your mind?</div>
             {modalOpen && (<Modal onClose={()=> setModalOpen(false)}>
                 <CreatePost setModalOpen={setModalOpen}/>
             </Modal>)}

@@ -1,3 +1,11 @@
+.newsfeed_wrapper{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    
+
+}
+
 .profile_pic {
     border-radius: 50%;
 }

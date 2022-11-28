@@ -17,34 +17,40 @@ function CreatePost ({setModalOpen}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setModalOpen(false)
-        const info = {msg:msg, img:img, video:video}
+        const info = {post_msg:msg, post_img:img, post_video:video}
         dispatch(createPostThunk(info))
     }
 
     return(
         <div>
             <h2>Create Post</h2>
+            {user.profile_photo ?
+            <img className='profile_pic3' src={user.profile_photo}></img>:
+            <img className='profile_pic3' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'></img>
+            }
+            <div>{user.first_name}</div>
+            <div>{user.last_name}</div>
             <form onSubmit={handleSubmit}>
                 <div>
                     <textarea
-                    type="text" value={msg} onChange={(e) => setMsg(e.target.value)}>
+                    type="text" value={msg} placeholder="What's on your mind?" onChange={(e) => setMsg(e.target.value)}>
                     </textarea>
-                    <label>Message Link</label>
+                    {/* <label>Message Link</label> */}
                 </div>
 
                 <div>
+                    <label>Photo upload</label>
                     <input
                     type='text' value={img} onChange={(e) => setImg(e.target.value)}>
                     </input>
-                    <label>Image Link</label>
                 </div>
 
 
                 <div>
+                    <label>Video upload</label>
                     <input
                     type='text' value={video} onChange={(e) => setVideo(e.target.value)}>
                     </input>
-                    <label>Video Link</label>
                 </div>
 
                 <div>

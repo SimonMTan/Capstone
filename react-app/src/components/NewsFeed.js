@@ -11,7 +11,11 @@ function NewsFeed () {
     const user = useSelector(state => state.session.user);
     const posts = useSelector(state => state.post);
     const allposts = Object.values(posts)
-    console.log(allposts, 'this is allposts')
+    const flipPosts = []
+    for(let i = allposts.length - 1; i >= 0; i--) {
+        flipPosts.push(allposts[i])
+    }
+    // console.log(allposts, 'this is allposts')
     const comment = useSelector(state => state.comment);
     const[showoption, setShowoption] = useState(false)
 
@@ -22,12 +26,12 @@ function NewsFeed () {
 
 
     return (
-        <div>
+        <div className="newsfeed_wrapper">
             <div>
-                <CreatePostModal/>
-            </div>
-            <div>
-                {allposts.map((post) => (
+                <div>
+                    <CreatePostModal user={user} />
+                </div>
+                {flipPosts.map((post) => (
                     <div key={post.id}>
                         {post.user.id === user.id ?
                         <div>
@@ -72,7 +76,7 @@ function NewsFeed () {
                         </div>
                         <div>
                             <h3>write a comment</h3>
-
+                            
                         </div>
                     </div>
                 ))}

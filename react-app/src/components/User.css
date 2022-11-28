@@ -1,0 +1,15 @@
+.cover_photo, .default_cover_photo {
+    width:940px;
+    height: 340px;
+}
+
+.default_cover_photo{
+    background-color: #F0F2F5;
+    /* border: 1px solid red; */
+    
+
+}
+
+.profile_pic2 {
+    border-radius: 50%;
+}

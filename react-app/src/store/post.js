@@ -44,8 +44,10 @@ export const createPostThunk = (info) => async (dispatch) => {
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(info)
     })
+    console.log(response, 'this is response from create thunk')
     if(response.ok){
         const data = await response.json()
+        console.log(data, 'this is data from createThunk')
         dispatch(createPost(data))
         return data
     }
@@ -61,7 +63,9 @@ export const editPostThunk = (info,id) => async (dispatch) => {
     console.log(response,info,id, 'this is response from thunk')
     if(response.ok){
         const data = await response.json()
+        console.log(data)
         dispatch(editPost(data))
+
         return data
     }
     return
@@ -96,15 +100,15 @@ export default function postReducer(state = initialState, action) {
             console.log(newState, 'this is new state')
             return newState
         case CREATE_POST:
-            newState = {...state, [action.payload.post.id]: action.payload.post}
+            newState = {...state, [action.payload.id]: action.payload}
             return newState
         case EDIT_POST:
-            newState = {...state, [action.payload.post.id]: action.payload.post}
+            newState = {...state, [action.payload.id]: action.payload}
             return newState
         case DELETE_POST:
             newState = {...state}
             console.log(action.payload, 'this is action.payload')
-            delete newState[action.payload.post.id]
+            delete newState[action.payload.id]
             return newState
         default:
             return state;

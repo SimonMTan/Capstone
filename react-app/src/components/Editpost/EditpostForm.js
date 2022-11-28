@@ -2,13 +2,13 @@ import { useState ,useEffect} from "react"
 import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { editPostThunk } from "../../store/post"
-
+import './Editpost.css'
 function Editpost ({id,post,setModalOpen}) {
     const dispatch = useDispatch()
     console.log(post, 'this is post from editpost')
-    if(!post.post_msg) post.post_msg = ''
-    if(!post.post_img) post.post_msg = ''
-    if(!post.post_video) post.post_msg = ''
+    // if(!post.post_msg) post.post_msg = ''
+    // if(!post.post_img) post.post_msg = ''
+    // if(!post.post_video) post.post_msg = ''
     console.log(post, 'after reassigning post_msg, post_img, post_video')
     const [msg , setMsg] = useState(post.post_msg)
     const [img , setImg] = useState(post.post_img)
@@ -22,8 +22,8 @@ function Editpost ({id,post,setModalOpen}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setModalOpen(false)
-        const info = {msg:msg, img:img, video:video}
-        dispatch(editPostThunk(info,id))
+        const info = {post_msg:msg, post_img:img, post_video:video}
+        let editpost = await dispatch(editPostThunk(info,id))
     }
 
     // useEffect(() => {
@@ -35,28 +35,34 @@ function Editpost ({id,post,setModalOpen}) {
 
     return (
         <div>
-            <h1>hello</h1>
+            <h1 className='editpost'>Edit post</h1>
+            {user.profile_photo ?
+            <img className='profile_pic3' src={user.profile_photo}></img>:
+            <img className='profile_pic3' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'></img>
+            }
+            <div>{user.first_name}</div>
+            <div>{user.last_name}</div>
             <form onSubmit={handleSubmit}>
                 <div>
                     <textarea
                     type="text" value={msg} onChange={(e) => setMsg(e.target.value)}>
                     </textarea>
-                    <label>Message Link</label>
+                    {/* <label>Message Link</label> */}
                 </div>
                 {img ?
                     <div>
+                        <label>Upload Image</label>
                         <input
                         type='text' value={img} onChange={(e) => setImg(e.target.value)}>
                         </input>
-                        <label>Image Link</label>
                     </div>
                 : null}
                 {video ?
                     <div>
+                        <label>Upload video</label>
                         <input
                         type='text' value={video} onChange={(e) => setVideo(e.target.value)}>
                         </input>
-                        <label>Video Link</label>
                     </div>
                 : null}
                 <div>
