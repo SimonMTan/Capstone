@@ -5,6 +5,7 @@ import EditPostModal from "./Editpost";
 import {deletePostThunk} from '../store/post'
 import CreatePostModal from "./CreatePost";
 import CreateComments from "./CreateComment/CreateComment";
+import DeleteComment from "./DeleteComment/DeleteComment";
 import './NewsFeed.css'
 
 function NewsFeed () {
@@ -63,12 +64,12 @@ function NewsFeed () {
                                     <div>{com.comment_user.last_name}</div>
                                     <div>{com.comment}</div>
                                     {com.user_id === user.id ?
-                                    <div onClick={()=>setShowoption(!showoption)}>...</div>
+                                    <div onClick={()=>setShowoption(!showoption)} >...</div>
                                     :null}
                                     {showoption ?
                                     <div>
                                         <div>edit comment form</div>
-                                        <div>delete comment</div>
+                                        <DeleteComment id={com.id}/>
                                     </div>
                                      : null}
                                 </div>
