@@ -19,18 +19,21 @@ def comments(id):
     return {"comments": [comment.to_dict() for comment in comments]}
 
 #Create a comment for a post
-@comment_routes.route('/', methods=['POST'])
+@comment_routes.route('/<int:id>', methods=['POST'])
 def create_comment(id): # id is the post id
     form = CommentForm()
+    print('<<<<<<<<FORM DATA: >>>>>>>>>', form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         comment = Comment(
             user_id = current_user.id,
             post_id = id,
-            comment = form.data['comment']
+            comment = form.comment.data
         )
+        print('<<<<<<<<comment: >>>>>>>>>', comment)
         db.session.add(comment)
         db.session.commit()
+
         return comment.to_dict()
     return {'errors': validation_errors(form.errors)}, 401
 

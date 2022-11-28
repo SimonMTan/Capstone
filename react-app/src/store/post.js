@@ -39,6 +39,7 @@ export const getPostsThunk = () => async (dispatch) => {
 }
 
 export const createPostThunk = (info) => async (dispatch) => {
+    console.log(info, 'thisisinsidepostthunk')
     const response = await fetch('/api/posts/', {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},

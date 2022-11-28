@@ -19,7 +19,7 @@ post_routes = Blueprint('posts', __name__)
 # @login_required
 def posts():
     posts = Post.query.order_by(desc('id')).all()
-    print(posts, '<<<<<<<<<<<<<<<<this is posts>>>>>>>>')
+    # print(posts, '<<<<<<<<<<<<<<<<this is posts>>>>>>>>')
     return {"posts": [post.to_dict() for post in posts]}
 
 #Create a post
@@ -48,8 +48,8 @@ def edit_post(id):
 
     if not post :
         return {'errors': ['Post not found']}, 404
-    print('!!!!!!!!!!!!post user id!!!!!', post.user_id)
-    print('@@@@@@current user id@@@@@@@@@@@', current_user.id)
+    # print('!!!!!!!!!!!!post user id!!!!!', post.user_id)
+    # print('@@@@@@current user id@@@@@@@@@@@', current_user.id)
     if post.user_id != current_user.id:
         return {'errors': ['Unauthorized']}, 401
 

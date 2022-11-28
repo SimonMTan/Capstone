@@ -4,6 +4,7 @@ import {getPostsThunk} from '../store/post'
 import EditPostModal from "./Editpost";
 import {deletePostThunk} from '../store/post'
 import CreatePostModal from "./CreatePost";
+import CreateComments from "./CreateComment/CreateComment";
 import './NewsFeed.css'
 
 function NewsFeed () {
@@ -19,7 +20,7 @@ function NewsFeed () {
     const comment = useSelector(state => state.comment);
     const[showoption, setShowoption] = useState(false)
 
-    console.log(comment)
+    // console.log(comment)
     useEffect(() => {
         dispatch(getPostsThunk());
     },[dispatch])
@@ -75,8 +76,7 @@ function NewsFeed () {
                             }
                         </div>
                         <div>
-                            <h3>write a comment</h3>
-                            
+                            <CreateComments post={post} />
                         </div>
                     </div>
                 ))}
