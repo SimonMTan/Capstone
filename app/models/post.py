@@ -10,14 +10,14 @@ class Post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod("users.id")), nullable=False)
-    post_msg = db.Column(db.String(255))
-    post_img = db.Column(db.String(255))
-    post_video = db.Column(db.String(255))
+    post_msg = db.Column(db.String(255),nullable=False)
+    post_img = db.Column(db.String(255),nullable=True)
+    post_video = db.Column(db.String(255),nullable=True)
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now())
 
     post_user = db.relationship("User", back_populates="user_post")
-    post_comment = db.relationship("Comment", back_populates="comment_post")
+    post_comment = db.relationship("Comment", back_populates="comment_post",cascade="all, delete")
 
     def to_dict(self):
         return {
@@ -28,4 +28,6 @@ class Post(db.Model):
             'post_video': self.post_video,
             "created_at": self.created_at,
             "updated_at": self.updated_at,
+            'user': self.post_user.to_dict(),
+            'comments': [comment.to_dict() for comment in self.post_comment]
         }

@@ -1,0 +1,21 @@
+.navbar_wrapper{
+    display:flex;
+    justify-content:space-between;
+}
+
+.navbar_mid{
+    display:flex;
+    justify-content:space-between;
+    width : 20%;
+}
+
+.navbar_right{
+    display:flex;
+}
+
+.profile_pic99{
+    border-radius: 50%;
+    width:30px;
+    height:30px;
+}
+

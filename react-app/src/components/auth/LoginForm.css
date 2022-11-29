@@ -1,0 +1,29 @@
+.submit_wrapper {
+    display: flex;
+    background-color: #F0F2F5;
+    height:550px;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+/* .logo{
+    width:50px;
+    height: 50px;
+} */
+
+.logoname{
+    font-size: 45px;
+    font-weight: 600;
+    color: #1877F2
+
+}
+
+.connect_fri{
+    font-size: 28px;
+}
+
+.splash-left{
+    width:580px;
+}
