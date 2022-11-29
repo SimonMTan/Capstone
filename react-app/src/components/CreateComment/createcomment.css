@@ -1,0 +1,22 @@
+/* .form_wrapper{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+
+.createcom_wrapper{
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.createcom{
+    width: 420px;
+
+}
+
+.submit_button1{
+    display: none;
+}
