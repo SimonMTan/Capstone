@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import NavBar from './Navbar/NavBar';
 import './User.css';
 function User() {
   const [user, setUser] = useState({});
@@ -33,20 +34,23 @@ function User() {
     //     <strong>Email</strong> {user.email}
     //   </li>
     // </ul>
-    <div className='userPage'>
-      {user.cover_photo ?
-      <img className='cover_photo' src={user.cover_photo} alt='cover photo'/> :
-      <div className='default_cover_photo'></div>}
-      {user.profile_photo?
-      <img className='profile_pic2' src={user.profile_photo} alt="profile pic" /> :
-      <img className='profile_pic2' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s' alt="profile pic" />
-      }
-      <div>{user.first_name} {user.last_name}</div>
-      <div>
-        <div>Intro</div>
-        <div>{user.bio ? user.bio: 'Bio information'}</div>
+    <>
+      <NavBar />
+      <div className='userPage'>
+        {user.cover_photo ?
+        <img className='cover_photo' src={user.cover_photo} alt='cover photo'/> :
+        <div className='default_cover_photo'></div>}
+        {user.profile_photo?
+        <img className='profile_pic2' src={user.profile_photo} alt="profile pic" /> :
+        <img className='profile_pic2' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s' alt="profile pic" />
+        }
+        <div>{user.first_name} {user.last_name}</div>
+        <div>
+          <div>Intro</div>
+          <div>{user.bio ? user.bio: 'Bio information'}</div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 export default User;

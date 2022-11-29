@@ -20,6 +20,7 @@ const LoginForm = () => {
       setErrors(data);
     }
 
+
   };
 
   const updateEmail = (e) => {
@@ -67,6 +68,15 @@ const LoginForm = () => {
             onChange={updatePassword}
           />
           <button type='submit'>Login</button>
+        </div>
+        <div>
+          <button
+            type='submit' onClick={()=>{
+            setEmail('demo@aa.io')
+            setPassword('password')
+            }}>
+              Demo users?
+          </button>
         </div>
       </form>
     </div>

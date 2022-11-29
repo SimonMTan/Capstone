@@ -4,7 +4,7 @@ import { editCommentThunk } from '../../store/comment'
 import { getPostsThunk } from '../../store/post'
 
 
-export default function EditComment({comment,id}){
+export default function EditComment({comment,id,showEdit,setShowEdit}) {
     console.log(comment, '!!#$this is comment', id)
     const dispatch = useDispatch()
     const [com, setCom] = useState(comment)
@@ -15,7 +15,7 @@ export default function EditComment({comment,id}){
         e.preventDefault();
         const info = {comment:com}
         await dispatch(editCommentThunk(info,id)).then(await dispatch(getPostsThunk()))
-        // setShowEdit(true)
+        setShowEdit(true)
     }
 
     return (

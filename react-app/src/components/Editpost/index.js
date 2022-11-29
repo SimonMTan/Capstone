@@ -5,6 +5,7 @@ import Editpost from './EditpostForm'
 
 export default function EditPostModal({post, id}) {
     const [modalOpen, setModalOpen] = useState(false)
+    console.log(id,'this is id')
 
 
     return (

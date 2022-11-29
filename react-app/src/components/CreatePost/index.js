@@ -8,7 +8,7 @@ export default function CreatePostModal({user}) {
 
     return (
         <div>
-            <img src={user.profile_photo}></img>
+            {/* <img src={user.profile_photo}></img> */}
             <div onClick={() => setModalOpen(true)}>What's on your mind?</div>
             {modalOpen && (<Modal onClose={()=> setModalOpen(false)}>
                 <CreatePost setModalOpen={setModalOpen}/>
