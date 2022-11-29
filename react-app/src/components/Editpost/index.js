@@ -3,16 +3,16 @@ import { Modal } from '../../context/Modal'
 import Editpost from './EditpostForm'
 // import './EditTrackForm.css'
 
-export default function EditPostModal({post, id}) {
+export default function EditPostModal({post, id,setShowOption}) {
     const [modalOpen, setModalOpen] = useState(false)
     console.log(id,'this is id')
 
 
     return (
         <div>
-            <button className='editButton' onClick={() => setModalOpen(true)}>Edit</button>
+            <div className='editButton' onClick={() => setModalOpen(true)}>Edit</div>
             {modalOpen && (<Modal onClose={()=> setModalOpen(false)}>
-                <Editpost post={post} id={id} setModalOpen={setModalOpen}/>
+                <Editpost post={post} id={id} setModalOpen={setModalOpen} setShowOption={setShowOption}/>
             </Modal>)}
         </div>
     )

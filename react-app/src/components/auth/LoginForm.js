@@ -5,7 +5,7 @@ import { login } from '../../store/session';
 import './LoginForm.css'
 
 
-const LoginForm = () => {
+const LoginForm = ({setLogin}) => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -42,15 +42,16 @@ const LoginForm = () => {
         <h1 className='logoname'>Homielist</h1>
         <h3 className='connect_fri'>Connect with friends and the world around you on Homielist</h3>
       </div>
-      <form onSubmit={onLogin}>
+      <form className='loginform'onSubmit={onLogin}>
         <div>
           {errors.map((error, ind) => (
             <div key={ind}>{error}</div>
           ))}
         </div>
         <div>
-          <label htmlFor='email'>Email</label>
+          {/* <label htmlFor='email'>Email</label> */}
           <input
+            className='logininput'
             name='email'
             type='text'
             placeholder='Email'
@@ -59,16 +60,17 @@ const LoginForm = () => {
           />
         </div>
         <div>
-          <label htmlFor='password'>Password</label>
+          {/* <label htmlFor='password'>Password</label> */}
           <input
+            className='logininput'
             name='password'
             type='password'
             placeholder='Password'
             value={password}
             onChange={updatePassword}
           />
-          <button type='submit'>Login</button>
         </div>
+          <button type='submit'>Login</button>
         <div>
           <button
             type='submit' onClick={()=>{
@@ -78,6 +80,7 @@ const LoginForm = () => {
               Demo users?
           </button>
         </div>
+        <div>New to the Homielist?<div onClick={()=>setLogin(false)}>Click here for signup</div></div>
       </form>
     </div>
   );

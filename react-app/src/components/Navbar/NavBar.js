@@ -36,7 +36,7 @@ const NavBar = () => {
           <NavLink to='/' exact={true} activeClassName='active'>
             Logo
           </NavLink>
-          <div>searchbar</div>
+          {/* <div>searchbar</div>  <<< uncomment this later*/}
         </div>
 
         <div className='navbar_mid'>
@@ -45,11 +45,11 @@ const NavBar = () => {
               Home
             </NavLink>
           </div>
-          <div>
+          {/* <div>
             <NavLink to={`/users/${user?.id}`} exact={true} activeClassName='active'>
               Users
             </NavLink>
-          </div>
+          </div>    <<<< uncomment this later*/}
         </div>
         <div>
           <img className='profile_pic99' onClick={openMenu} src={user?.profile_photo?user?.profile_photo:defaultpic} ></img>

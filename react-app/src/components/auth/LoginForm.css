@@ -8,10 +8,6 @@
     align-items: center;
 }
 
-/* .logo{
-    width:50px;
-    height: 50px;
-} */
 
 .logoname{
     font-size: 45px;
@@ -20,10 +16,32 @@
 
 }
 
+.splash-left{
+    width:450px;
+}
 .connect_fri{
     font-size: 28px;
+
 }
 
-.splash-left{
-    width:580px;
+.loginform{
+    width:400px;
+    height: 315px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    background-color: white;
+}
+
+.logininput{
+    width:364px;
+    height:52px;
+    align-items: center;
+    padding-left:16px;
+    padding-right:16px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 14px;
 }
