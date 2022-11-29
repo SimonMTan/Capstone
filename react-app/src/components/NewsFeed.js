@@ -23,6 +23,7 @@ function NewsFeed () {
     const[showoption2, setShowoption2] = useState(false)
     const[showEdit,setShowEdit] = useState(true)
     const[showOption,setShowOption] = useState(false)
+    const [showComment,setShowComment] = useState(false)
 
     const editComment = () => {
         setShowEdit(false)
@@ -44,7 +45,6 @@ function NewsFeed () {
                     <div className='create_post' ><CreatePostModal user={user} /></div>
                 </div>
                 {flipPosts?.map((post) => (
-
                         <div className='post_wrapper'key={post?.id}>
                             <div className='post_wrapper2'>
                                 <div className="username_wrapper">
@@ -69,7 +69,7 @@ function NewsFeed () {
                                 </div>
                             </div>
                         </div>
-                        <div>{post.post_msg}</div>
+                        <div className="msg">{post.post_msg}</div>
                         {post.post_img ?<img width={'250px'} src={post.post_img}></img>: null}
                         {post.post_video ?
                         <video width='250px'controls>
@@ -77,37 +77,53 @@ function NewsFeed () {
                             </source>
                         </video>: null
                         }
-                        <div>like </div><div>comment</div>
-                        <div>
+                        <div className="likeorcomment">
+                            <div className="like">like </div>
+                            <div className="like" onClick={() => setShowComment(post.id)}>comment</div>
+                        </div>
+                        <div className="comment_wrapper">
                             {post.comments.map((com) => (
-                                <div key={com.id}>
-                                    {com.comment_user.profile_photo ?
-                                        <img src={com.comment_user.profile_photo} ></img> :
-                                        <img className='profile_pic' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'></img>
-                                    }
-                                    <div>{com.comment_user.first_name}</div>
-                                    <div>{com.comment_user.last_name}</div>
-                                    {showEdit ?
-                                    <div>{com.comment}</div> :
-                                    <EditComment comment={com.comment} id={com.id} showEdit={showEdit} setShowEdit={setShowEdit} />
-                                    }
-                                    {com.user_id === user.id ?
-                                    <div onClick={()=>setShowoption2(com.id)} >...</div>
-                                    :null}
-                                    {showoption2 === com.id ?
-                                    <div>
-                                        <div onClick={editComment}>Edit</div>
-                                        <DeleteComment id={com.id}/>
+                            <div >
+                                {showComment === post.id ?
+                                    <div key={com.id}>
+                                        <div className='username_wrapper'>
+                                            {com.comment_user.profile_photo ?
+                                                <img src={com.comment_user.profile_photo} ></img> :
+                                                <img className='profile_pic' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'></img>
+                                            }
+                                            <div className="xxx">
+                                                <div className='username_wrapper2'>
+                                                    <div className='name2'>{com.comment_user.first_name}</div>
+                                                    <div className='name2'>{com.comment_user.last_name}</div>
+                                                </div>
+                                                {showEdit === com.id ?
+                                                <EditComment comment={com.comment} id={com.id} showEdit={showEdit} setShowEdit={setShowEdit} />:
+                                                <div className="name3">{com.comment}</div>
+                                                }
+                                            </div>
+                                            {com.user_id === user.id ?
+                                            <div onClick={()=>setShowoption2(com.id)} >...</div>
+                                            :null}
+                                            {showoption2 === com.id ?
+                                            <div>
+                                                <div onClick={()=>{setShowEdit(com.id);setShowoption2(false)}}>Edit</div>
+                                                <DeleteComment id={com.id}/>
+                                            </div>
+                                            : null}
+                                        </div>
                                     </div>
-                                    : null}
-                                </div>
-                                ))}
+                                :null}
                             </div>
-                            <div className="hello">
-                                <CreateComments post={post} />
+                                ))}
+                            <div className="create_Comment_wrapper">
+                                <img className='profile_pic' src={user.profile_photo?user.profile_photo:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'}></img>
+                                <div className="hello">
+                                    <CreateComments post={post} />
+                                </div>
                             </div>
                         </div>
 
+                    </div>
                 ))}
             </div>
         </div>

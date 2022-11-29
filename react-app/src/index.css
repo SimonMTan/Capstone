@@ -1,6 +1,11 @@
 /* TODO Add site wide styles */
-/* *{
-    background-color: #F0F2F5;
+*{
+    /* background-color: #F0F2F5; */
     margin: 0;
     padding: 0;
-} */
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
