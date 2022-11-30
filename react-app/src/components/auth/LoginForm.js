@@ -1,27 +1,51 @@
-import React, { useState ,} from 'react';
+import React, { useState , useEffect} from 'react';
 import { useSelector, useDispatch ,  } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css'
 
 
-const LoginForm = () => {
-  const [errors, setErrors] = useState([]);
+const LoginForm = ({setLogin}) => {
+  const [errors, setErrors] = useState();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showErrors,setShowErrors] = useState(false)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   let history = useHistory();
 
+  function isEmpty2(str) {
+    return !str.trim().length
+  }
+
+  useEffect(async() => {
+    const err = {};
+    if(!email || isEmpty2(email)) err.email = '⛔Please provide an email';
+    if(!email.toLowerCase().match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,63})$/)) err.email='⛔Please provide a valid email';
+    if(!password || isEmpty2(password)) err.password = '⛔Please provide a password';
+    setErrors(err)
+  },[email,password])
+
   const onLogin = async (e) => {
     e.preventDefault();
+    setShowErrors(true)
+
     const data = await dispatch(login(email, password));
-    if (data) {
-      setErrors(data);
-    }
+      if (data) {
+        // console.log(data,'this is data from login')
+        const errs = {};
+        for (let error of data){
+          if(error.startsWith('email')) errs.email = '⛔Email not found';
+          if(error.startsWith('password')) errs.password = '⛔Incorrect password';
+        }
+        setShowErrors(true)
+        setErrors(errs)
+        return
+      }
 
-
+    return
   };
+
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -42,15 +66,11 @@ const LoginForm = () => {
         <h1 className='logoname'>Homielist</h1>
         <h3 className='connect_fri'>Connect with friends and the world around you on Homielist</h3>
       </div>
-      <form onSubmit={onLogin}>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
-        <div>
-          <label htmlFor='email'>Email</label>
+      <form className='loginform'onSubmit={onLogin}>
+        <div className='loginbox1'>
+          {/* <label htmlFor='email'>Email</label> */}
           <input
+            className='logininput'
             name='email'
             type='text'
             placeholder='Email'
@@ -58,19 +78,24 @@ const LoginForm = () => {
             onChange={updateEmail}
           />
         </div>
-        <div>
-          <label htmlFor='password'>Password</label>
+        {showErrors && errors.email && (<div className='error'> {errors.email}</div>)}
+        <div className='loginbox2'>
+          {/* <label htmlFor='password'>Password</label> */}
           <input
+            className='logininput'
             name='password'
             type='password'
             placeholder='Password'
             value={password}
             onChange={updatePassword}
           />
-          <button type='submit'>Login</button>
         </div>
-        <div>
-          <button
+        {showErrors && errors.password && (<div className='error'>{errors.password}</div>)}
+        <div className='submit_button21'>
+          <button className='submit_button22' type='submit'>Log In</button>
+        </div>
+        <div className='demouser123'>
+          <button className='demouser1234'
             type='submit' onClick={()=>{
             setEmail('demo@aa.io')
             setPassword('password')
@@ -78,6 +103,8 @@ const LoginForm = () => {
               Demo users?
           </button>
         </div>
+        <div>-----------------------------------------------</div>
+        <button className='newuser123' onClick={()=>setLogin(false)}>Create new account</button>
       </form>
     </div>
   );

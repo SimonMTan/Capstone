@@ -9,7 +9,7 @@
     width : 20%;
 }
 
-.navbar_right{
+.navbar_left{
     display:flex;
 }
 
@@ -18,4 +18,9 @@
     width:30px;
     height:30px;
 }
+
+.navbar_right{
+    position:relative
+}
+
 

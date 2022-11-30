@@ -2,10 +2,11 @@ import React,{ useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { editCommentThunk } from '../../store/comment'
 import { getPostsThunk } from '../../store/post'
+import './EditComment.css'
 
 
 export default function EditComment({comment,id,showEdit,setShowEdit}) {
-    console.log(comment, '!!#$this is comment', id)
+    // console.log(comment, '!!#$this is comment', id)
     const dispatch = useDispatch()
     const [com, setCom] = useState(comment)
     // const[showEdit,setShowEdit] = useState(edit)
@@ -20,12 +21,14 @@ export default function EditComment({comment,id,showEdit,setShowEdit}) {
 
     return (
         <div>
-            <form onSubmit={handleSubmitedit}>
+            <form className="editcom_wrapper" onSubmit={handleSubmitedit}>
                 <div>
-                    <input
+                    <input className='editcom'
                     type='text' value={com} onChange={(e) => setCom(e.target.value)}>
                     </input>
-                    <button type='submit'>submit</button>
+                </div>
+                <div>
+                    <button className='submit_button2' type='submit'>submit</button>
                 </div>
             </form>
         </div>

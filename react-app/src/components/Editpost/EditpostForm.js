@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { editPostThunk } from "../../store/post"
 import './Editpost.css'
-function Editpost ({id,post,setModalOpen}) {
+function Editpost ({id,post,setModalOpen,setShowOption}) {
     const dispatch = useDispatch()
     console.log(post, 'this is post from editpost')
     // if(!post.post_msg) post.post_msg = ''
@@ -22,8 +22,10 @@ function Editpost ({id,post,setModalOpen}) {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setModalOpen(false)
+        setShowOption(false)
         const info = {post_msg:msg, post_img:img, post_video:video}
         let editpost = await dispatch(editPostThunk(info,id))
+
     }
 
     // useEffect(() => {

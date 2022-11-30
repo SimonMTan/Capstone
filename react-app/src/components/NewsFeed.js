@@ -25,15 +25,44 @@ function NewsFeed () {
     const[showOption,setShowOption] = useState(false)
     const [showComment,setShowComment] = useState(false)
 
-    const editComment = () => {
-        setShowEdit(false)
-        setShowoption2(false)
-    }
+    // const editComment = () => {
+    //     setShowEdit(false)
+    //     setShowoption2(false)
+    // }
     // console.log(comment)
     useEffect(() => {
         dispatch(getPostsThunk());
         // setShowEdit(true)
     },[dispatch])
+
+    useEffect(() => {
+        if (!showOption) return;
+        // if(!showoption2) return;
+
+        const closeMenu = () => {
+            setShowOption(false)
+            // setShowoption2(false)
+        };
+
+        document.addEventListener('click', closeMenu);
+
+        return () => document.removeEventListener("click", closeMenu);
+        }, [showOption]);
+
+    // useEffect(() => {
+    //     // if (!showOption) return;
+    //     if(!showoption2) return;
+
+    //     const closeMenu2 = () => {
+    //         // setShowOption(false)
+    //         setShowoption2(false)
+    //     };
+
+    //     document.addEventListener('click', closeMenu2);
+
+    //     return () => document.removeEventListener("click", closeMenu2);
+    //     }, [showoption2]);
+
 
     const defaultpic = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'
 
@@ -52,16 +81,16 @@ function NewsFeed () {
                                     <div className="name">{post.user.first_name}</div>
                                     <div className="name">{post.user.last_name}</div>
                                 </div>
-                            <div>
+                            <div className='option'>
                                 {post.user.id === user.id ?
-                                <div className='option' onClick={() => setShowOption(post.id)}>...</div>:null}
+                                <div  onClick={() => setShowOption(post.id)}>...</div>:null}
                                 <div>
                                     {showOption === post.id?
                                         <div>
                                             {post.user.id === user.id ?
-                                            <div>
-                                                <div><EditPostModal post={post} id={post.id}/></div>
-                                                <button onClick={()=>{dispatch(deletePostThunk(post.id)).then(()=>dispatch(getPostsThunk())) }}>DELETE</button>
+                                            <div className="option2">
+                                                <div className='option3'><EditPostModal post={post} id={post.id} setShowOption={setShowOption}/></div>
+                                                <div className='option3' onClick={()=>{dispatch(deletePostThunk(post.id)).then(()=>dispatch(getPostsThunk())) }}>Delete</div>
                                             </div>
                                             : null}
                                         </div>
@@ -70,15 +99,15 @@ function NewsFeed () {
                             </div>
                         </div>
                         <div className="msg">{post.post_msg}</div>
-                        {post.post_img ?<img width={'250px'} src={post.post_img}></img>: null}
+                        {post.post_img ?<img width={'480px'} src={post.post_img}></img>: null}
                         {post.post_video ?
-                        <video width='250px'controls>
+                        <video width='480px'controls>
                             <source src={post.post_video} type="video/mp4">
                             </source>
                         </video>: null
                         }
                         <div className="likeorcomment">
-                            <div className="like">like </div>
+                            {/* <div className="like">like </div>   <<<< uncomment this later*/}
                             <div className="like" onClick={() => setShowComment(post.id)}>comment</div>
                         </div>
                         <div className="comment_wrapper">
@@ -92,24 +121,28 @@ function NewsFeed () {
                                                 <img className='profile_pic' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'></img>
                                             }
                                             <div className="xxx">
-                                                <div className='username_wrapper2'>
-                                                    <div className='name2'>{com.comment_user.first_name}</div>
-                                                    <div className='name2'>{com.comment_user.last_name}</div>
-                                                </div>
                                                 {showEdit === com.id ?
                                                 <EditComment comment={com.comment} id={com.id} showEdit={showEdit} setShowEdit={setShowEdit} />:
-                                                <div className="name3">{com.comment}</div>
+                                                <div>
+                                                    <div className='username_wrapper2'>
+                                                        <div className='name2'>{com.comment_user.first_name}</div>
+                                                        <div className='name2'>{com.comment_user.last_name}</div>
+                                                    </div>
+                                                    <div className="name3">{com.comment}</div>
+                                                </div>
                                                 }
                                             </div>
                                             {com.user_id === user.id ?
                                             <div onClick={()=>setShowoption2(com.id)} >...</div>
                                             :null}
-                                            {showoption2 === com.id ?
-                                            <div>
-                                                <div onClick={()=>{setShowEdit(com.id);setShowoption2(false)}}>Edit</div>
-                                                <DeleteComment id={com.id}/>
-                                            </div>
-                                            : null}
+
+                                                {showoption2 === com.id ?
+                                                <div className='comment_option_drop'>
+                                                    <div className='comment_option'onClick={()=>{setShowEdit(com.id);setShowoption2(false)}}>Edit</div>
+                                                    <div className='comment_option'><DeleteComment id={com.id} setShowoption2={setShowoption2}/></div>
+                                                </div>
+                                                : null}
+
                                         </div>
                                     </div>
                                 :null}
