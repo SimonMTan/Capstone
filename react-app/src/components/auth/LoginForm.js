@@ -29,7 +29,8 @@ const LoginForm = ({setLogin}) => {
   const onLogin = async (e) => {
     e.preventDefault();
     setShowErrors(true)
-
+    let arrerr = Object.values(errors)
+    if (arrerr.length <1) {
     const data = await dispatch(login(email, password));
       if (data) {
         // console.log(data,'this is data from login')
@@ -42,7 +43,7 @@ const LoginForm = ({setLogin}) => {
         setErrors(errs)
         return
       }
-
+    }
     return
   };
 

@@ -99,9 +99,9 @@ function NewsFeed () {
                             </div>
                         </div>
                         <div className="msg">{post.post_msg}</div>
-                        {post.post_img ?<img width={'480px'} src={post.post_img}></img>: null}
+                        {post.post_img ?<img width={'680'} height='550px' src={post.post_img}></img>: null}
                         {post.post_video ?
-                        <video width='480px'controls>
+                        <video width='680px' height='550px'controls>
                             <source src={post.post_video} type="video/mp4">
                             </source>
                         </video>: null

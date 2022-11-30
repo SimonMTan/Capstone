@@ -1,0 +1,62 @@
+.deletecom_wrapper{
+    width:540px;
+    height:max-content;
+    border-radius: 20px;
+}
+
+.deletecom_wrapper2{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    align-items:center;
+    position: relative;
+    height: 60px;
+    border-bottom: solid #E4E6EB;
+}
+
+.delete_comment{
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.areyousure{
+    margin-top: 5px;
+    margin-bottom: 30px;
+    margin-left:5px;
+}
+
+.buttonxx{
+    display:flex;
+    flex-direction:row;
+    justify-content: flex-end;
+}
+
+.buttonno{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin-right:15px;
+    margin-bottom: 10px;
+    width:50px;
+    height: 30px;
+    color:#1B74E4;
+    font-weight: bold;
+}
+
+.buttonyes{
+    margin-right: 10px;
+    margin-bottom: 10px;
+    width:70px;
+    height: 30px;
+    border-radius: 10px;
+    background-color: #1B74E4;
+    color:white;
+    border:1px solid white;
+}
+
+.buttonno:hover {
+    cursor: pointer;
+}
+.buttonyes:hover {
+    cursor: pointer;
+}
