@@ -32,7 +32,7 @@ const NavBar = () => {
   return (
     // <nav>
       <div className='navbar_wrapper'>
-        <div className='navbar_right'>
+        <div className='navbar_left'>
           <NavLink to='/' exact={true} activeClassName='active'>
             Logo
           </NavLink>
@@ -51,12 +51,14 @@ const NavBar = () => {
             </NavLink>
           </div>    <<<< uncomment this later*/}
         </div>
-        <div>
+        <div className='navbar_right'>
           <img className='profile_pic99' onClick={openMenu} src={user?.profile_photo?user?.profile_photo:defaultpic} ></img>
+          {/* <div className='narbar_right_2'> */}
           {showMenu && (
             <LogoutButton />
-          )}
-        </div>
+            )}
+            </div>
+        {/* </div> */}
       </div>
     // </nav>
   );

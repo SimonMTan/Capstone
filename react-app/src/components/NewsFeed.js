@@ -49,19 +49,19 @@ function NewsFeed () {
         return () => document.removeEventListener("click", closeMenu);
         }, [showOption]);
 
-    useEffect(() => {
-        // if (!showOption) return;
-        if(!showoption2) return;
+    // useEffect(() => {
+    //     // if (!showOption) return;
+    //     if(!showoption2) return;
 
-        const closeMenu2 = () => {
-            // setShowOption(false)
-            setShowoption2(false)
-        };
+    //     const closeMenu2 = () => {
+    //         // setShowOption(false)
+    //         setShowoption2(false)
+    //     };
 
-        document.addEventListener('click', closeMenu2);
+    //     document.addEventListener('click', closeMenu2);
 
-        return () => document.removeEventListener("click", closeMenu2);
-        }, [showoption2]);
+    //     return () => document.removeEventListener("click", closeMenu2);
+    //     }, [showoption2]);
 
 
     const defaultpic = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'
@@ -136,7 +136,7 @@ function NewsFeed () {
                                             {showoption2 === com.id ?
                                             <div>
                                                 <div onClick={()=>{setShowEdit(com.id);setShowoption2(false)}}>Edit</div>
-                                                <DeleteComment id={com.id}/>
+                                                <DeleteComment id={com.id} setShowoption2={setShowoption2}/>
                                             </div>
                                             : null}
                                         </div>

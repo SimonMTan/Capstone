@@ -20,23 +20,22 @@ const LoginForm = ({setLogin}) => {
 
   useEffect(async() => {
     const err = {};
-    if(!email || isEmpty2(email)) err.email = 'Please provide an email';
-    if(!password || isEmpty2(password)) err.password = 'Please provide a password';
+    if(!email || isEmpty2(email)) err.email = '⛔Please provide an email';
+    if(!password || isEmpty2(password)) err.password = '⛔Please provide a password';
     setErrors(err)
   },[email,password])
 
   const onLogin = async (e) => {
     e.preventDefault();
     setShowErrors(true)
-    // console.log('this is working 2222')
-    // if(errors){ return}
+
     const data = await dispatch(login(email, password));
       if (data) {
-        console.log(data,'this is data from login')
+        // console.log(data,'this is data from login')
         const errs = {};
         for (let error of data){
-          if(error.startsWith('email')) errs.email = '❌Email not found';
-          if(error.startsWith('password')) errs.password = 'Incorrect password❗';
+          if(error.startsWith('email')) errs.email = '⛔Email not found';
+          if(error.startsWith('password')) errs.password = '⛔Incorrect password';
         }
         setShowErrors(true)
         setErrors(errs)

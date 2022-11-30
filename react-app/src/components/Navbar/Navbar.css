@@ -9,7 +9,7 @@
     width : 20%;
 }
 
-.navbar_right{
+.navbar_left{
     display:flex;
 }
 
@@ -19,3 +19,12 @@
     height:30px;
 }
 
+.navbar_right{
+    position:relative
+}
+
+.navbar_right_2{
+    position:absolute;
+    z-index:3;
+    top:20px;
+}
