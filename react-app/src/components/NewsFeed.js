@@ -35,19 +35,19 @@ function NewsFeed () {
         // setShowEdit(true)
     },[dispatch])
 
-    useEffect(() => {
-        if (!showOption) return;
-        // if(!showoption2) return;
+    // useEffect(() => {
+    //     if (!showOption) return;
+    //     // if(!showoption2) return;
 
-        const closeMenu = () => {
-            setShowOption(false)
-            // setShowoption2(false)
-        };
+    //     const closeMenu = () => {
+    //         setShowOption(false)
+    //         // setShowoption2(false)
+    //     };
 
-        document.addEventListener('click', closeMenu);
+    //     document.addEventListener('click', closeMenu);
 
-        return () => document.removeEventListener("click", closeMenu);
-        }, [showOption]);
+    //     return () => document.removeEventListener("click", closeMenu);
+    //     }, [showOption]);
 
     // useEffect(() => {
     //     // if (!showOption) return;
