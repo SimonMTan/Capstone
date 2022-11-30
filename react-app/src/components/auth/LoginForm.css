@@ -1,47 +1,129 @@
 .submit_wrapper {
     display: flex;
     background-color: #F0F2F5;
-    height:550px;
+    height:650px;
     width: 100%;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-
 .logoname{
     font-size: 45px;
     font-weight: 600;
     color: #1877F2
-
 }
 
 .splash-left{
     width:450px;
+    margin-right: 50px;
 }
+
 .connect_fri{
     font-size: 28px;
-
 }
 
 .loginform{
     width:400px;
-    height: 315px;
+    height: max-content;
     display:flex;
     flex-direction: column;
     align-items: center;
     border-radius: 20px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     background-color: white;
+    padding:5px;
+}
+
+/* .loginbox1 {
+
+} */
+
+.loginbox1, .loginbox2{
+    margin-top: 10px;
+    align-items: flex-start
+    /* margin-bottom: 10px; */
+    /* border-radius: 40px; */
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); */
 }
 
 .logininput{
-    width:364px;
-    height:52px;
+    width:324px;
+    height:22px;
     align-items: center;
     padding-left:16px;
     padding-right:16px;
     padding-top: 14px;
     padding-bottom: 14px;
     font-size: 14px;
+}
+
+.submit_button21{
+    display: flex;
+    margin-top: 10px;
+    /* background-color: #1877F2;
+    width:356px;
+    height: 40px; */
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid black; */
+    border-radius: 8px;
+}
+.submit_button22:hover{
+    cursor: pointer;
+}
+
+.submit_button22{
+    font-size: 22px;
+    color: white;
+    width:360px;
+    height: 40px;
+    background-color:  #1877F2;
+    border-radius: 8px;
+    border: 1px solid white;
+
+}
+.demouser123{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* border: 1px solid black;
+    border-radius: 8px;
+    width:200px; */
+    margin-top: 20px;
+}
+
+.demouser1234{
+    font-size: 16px;
+    color: white;
+    width:220px;
+    height: 30px;
+    background-color:  #1877F2;
+    border-radius: 8px;
+    border: 1px solid white;
+
+}
+
+.demouser1234:hover{
+    cursor: pointer;
+}
+
+.newuser123{
+    margin-top:20px;
+    margin-bottom:20px;
+    font-size: 16px;
+    color: white;
+    width:220px;
+    height: 40px;
+    background-color: #42B72A;
+    border-radius: 8px;
+    border: 1px solid white;
+}
+.demouser1234:hover{
+    cursor: pointer;
+}
+
+.error{
+    color: red;
+
 }

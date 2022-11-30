@@ -1,4 +1,4 @@
-import React, { useState ,} from 'react';
+import React, { useState , useEffect} from 'react';
 import { useSelector, useDispatch ,  } from 'react-redux';
 import { Redirect, useHistory } from 'react-router-dom';
 import { login } from '../../store/session';
@@ -6,22 +6,46 @@ import './LoginForm.css'
 
 
 const LoginForm = ({setLogin}) => {
-  const [errors, setErrors] = useState([]);
+  const [errors, setErrors] = useState();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showErrors,setShowErrors] = useState(false)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
   let history = useHistory();
 
+  function isEmpty2(str) {
+    return !str.trim().length
+  }
+
+  useEffect(async() => {
+    const err = {};
+    if(!email || isEmpty2(email)) err.email = 'Please provide an email';
+    if(!password || isEmpty2(password)) err.password = 'Please provide a password';
+    setErrors(err)
+  },[email,password])
+
   const onLogin = async (e) => {
     e.preventDefault();
+    setShowErrors(true)
+    // console.log('this is working 2222')
+    // if(errors){ return}
     const data = await dispatch(login(email, password));
-    if (data) {
-      setErrors(data);
-    }
+      if (data) {
+        console.log(data,'this is data from login')
+        const errs = {};
+        for (let error of data){
+          if(error.startsWith('email')) errs.email = '❌Email not found';
+          if(error.startsWith('password')) errs.password = 'Incorrect password❗';
+        }
+        setShowErrors(true)
+        setErrors(errs)
+        return
+      }
 
-
+    return
   };
+
 
   const updateEmail = (e) => {
     setEmail(e.target.value);
@@ -43,12 +67,7 @@ const LoginForm = ({setLogin}) => {
         <h3 className='connect_fri'>Connect with friends and the world around you on Homielist</h3>
       </div>
       <form className='loginform'onSubmit={onLogin}>
-        <div>
-          {errors.map((error, ind) => (
-            <div key={ind}>{error}</div>
-          ))}
-        </div>
-        <div>
+        <div className='loginbox1'>
           {/* <label htmlFor='email'>Email</label> */}
           <input
             className='logininput'
@@ -59,7 +78,8 @@ const LoginForm = ({setLogin}) => {
             onChange={updateEmail}
           />
         </div>
-        <div>
+        {showErrors && errors.email && (<div className='error'> {errors.email}</div>)}
+        <div className='loginbox2'>
           {/* <label htmlFor='password'>Password</label> */}
           <input
             className='logininput'
@@ -70,9 +90,12 @@ const LoginForm = ({setLogin}) => {
             onChange={updatePassword}
           />
         </div>
-          <button type='submit'>Login</button>
-        <div>
-          <button
+        {showErrors && errors.password && (<div className='error'>{errors.password}</div>)}
+        <div className='submit_button21'>
+          <button className='submit_button22' type='submit'>Log In</button>
+        </div>
+        <div className='demouser123'>
+          <button className='demouser1234'
             type='submit' onClick={()=>{
             setEmail('demo@aa.io')
             setPassword('password')
@@ -80,7 +103,8 @@ const LoginForm = ({setLogin}) => {
               Demo users?
           </button>
         </div>
-        <div>New to the Homielist?<div onClick={()=>setLogin(false)}>Click here for signup</div></div>
+        <div>-----------------------------------------------</div>
+        <button className='newuser123' onClick={()=>setLogin(false)}>Create new account</button>
       </form>
     </div>
   );
