@@ -40,9 +40,9 @@ const SignUpForm = ({setLogin}) => {
   const onSignUp = async (e) => {
     e.preventDefault();
     setShowErrors2(true)
-    console.log('this is working?')
-    if (password === repeatPassword) {
-      console.log('this is working too?',username, email, password,firstname,lastname )
+    // console.log('this is working?')
+    if (password === repeatPassword && !errors) {
+      // console.log('this is working too?',username, email, password,firstname,lastname )
       const data = await dispatch(signUp(username, email, password,firstname,lastname));
       if (data) {
         console.log(data)

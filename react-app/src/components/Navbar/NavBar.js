@@ -53,12 +53,12 @@ const NavBar = () => {
         </div>
         <div className='navbar_right'>
           <img className='profile_pic99' onClick={openMenu} src={user?.profile_photo?user?.profile_photo:defaultpic} ></img>
-          {/* <div className='narbar_right_2'> */}
+
           {showMenu && (
             <LogoutButton />
             )}
-            </div>
-        {/* </div> */}
+           
+        </div>
       </div>
     // </nav>
   );

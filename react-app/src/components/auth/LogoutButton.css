@@ -1,0 +1,17 @@
+.navbar_right_2{
+    display:flex;
+    position:absolute;
+    z-index:3;
+    top:30px;
+    right:0px;
+    width:80px;
+    background-color: white;
+    border-radius: 5px;
+    border:1px solid black;
+    padding:5px;
+}
+
+.navbar_right_2:hover {
+    background-color: #F0F2F5;
+    cursor: pointer;
+}

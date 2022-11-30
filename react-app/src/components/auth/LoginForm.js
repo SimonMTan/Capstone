@@ -21,6 +21,7 @@ const LoginForm = ({setLogin}) => {
   useEffect(async() => {
     const err = {};
     if(!email || isEmpty2(email)) err.email = '⛔Please provide an email';
+    if(!email.toLowerCase().match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,63})$/)) err.email='⛔Please provide a valid email';
     if(!password || isEmpty2(password)) err.password = '⛔Please provide a password';
     setErrors(err)
   },[email,password])

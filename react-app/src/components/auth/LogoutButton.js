@@ -2,6 +2,7 @@ import React from 'react';
 import { useSelector,useDispatch } from 'react-redux';
 import { logout } from '../../store/session';
 import { Redirect, useHistory } from 'react-router-dom';
+import './LogoutButton.css'
 
 const LogoutButton = () => {
   const history = useHistory();
@@ -13,7 +14,7 @@ const LogoutButton = () => {
 
   };
 
-  return <button onClick={onLogout}>Log out</button>;
+  return <div className='navbar_right_2'onClick={onLogout}>Log Out</div>;
 };
 
 export default LogoutButton;

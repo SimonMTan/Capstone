@@ -70,6 +70,8 @@
     background-color: #F0F2F5;
     margin-bottom: 5px;
     /* width:87%; */
+    padding:5px;
+    border-radius: 10px;
 
 }
 .username_wrapper2{
@@ -171,4 +173,29 @@
     display:flex;
     justify-content: center;
     align-items: center;
+}
+
+.comment_option_drop{
+    border: 1px solid black;
+    width:60px;
+    border-radius: 10px;
+    background-color: white;
+    z-index: 5;
+    height:max-content;
+    background-color: white;
+
+}
+
+.comment_option{
+    padding: 4px;
+    /* height:54px; */
+    /* background-color: white; */
+
+}
+
+.comment_option:hover{
+    background-color: #F0F2F5;
+    cursor: pointer;
+    border-radius:10px;
+    /* background-color: white; */
 }

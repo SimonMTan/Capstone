@@ -99,9 +99,9 @@ function NewsFeed () {
                             </div>
                         </div>
                         <div className="msg">{post.post_msg}</div>
-                        {post.post_img ?<img width={'250px'} src={post.post_img}></img>: null}
+                        {post.post_img ?<img width={'480px'} src={post.post_img}></img>: null}
                         {post.post_video ?
-                        <video width='250px'controls>
+                        <video width='480px'controls>
                             <source src={post.post_video} type="video/mp4">
                             </source>
                         </video>: null
@@ -121,24 +121,28 @@ function NewsFeed () {
                                                 <img className='profile_pic' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'></img>
                                             }
                                             <div className="xxx">
-                                                <div className='username_wrapper2'>
-                                                    <div className='name2'>{com.comment_user.first_name}</div>
-                                                    <div className='name2'>{com.comment_user.last_name}</div>
-                                                </div>
                                                 {showEdit === com.id ?
                                                 <EditComment comment={com.comment} id={com.id} showEdit={showEdit} setShowEdit={setShowEdit} />:
-                                                <div className="name3">{com.comment}</div>
+                                                <div>
+                                                    <div className='username_wrapper2'>
+                                                        <div className='name2'>{com.comment_user.first_name}</div>
+                                                        <div className='name2'>{com.comment_user.last_name}</div>
+                                                    </div>
+                                                    <div className="name3">{com.comment}</div>
+                                                </div>
                                                 }
                                             </div>
                                             {com.user_id === user.id ?
                                             <div onClick={()=>setShowoption2(com.id)} >...</div>
                                             :null}
-                                            {showoption2 === com.id ?
-                                            <div>
-                                                <div onClick={()=>{setShowEdit(com.id);setShowoption2(false)}}>Edit</div>
-                                                <DeleteComment id={com.id} setShowoption2={setShowoption2}/>
-                                            </div>
-                                            : null}
+
+                                                {showoption2 === com.id ?
+                                                <div className='comment_option_drop'>
+                                                    <div className='comment_option'onClick={()=>{setShowEdit(com.id);setShowoption2(false)}}>Edit</div>
+                                                    <div className='comment_option'><DeleteComment id={com.id} setShowoption2={setShowoption2}/></div>
+                                                </div>
+                                                : null}
+
                                         </div>
                                     </div>
                                 :null}
