@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Redirect } from 'react-router-dom'
 import { editPostThunk } from "../../store/post"
 import './Editpost.css'
+import {getPostsThunk} from '../../store/post'
+
 function Editpost ({id,post,setModalOpen,setShowOption}) {
     const dispatch = useDispatch()
     console.log(post, 'this is post from editpost')
@@ -45,6 +47,7 @@ function Editpost ({id,post,setModalOpen,setShowOption}) {
         }
         const info = {post_msg:msg, post_img:img, post_video:video}
         await dispatch(editPostThunk(info,id))
+        await dispatch(getPostsThunk())
         setModalOpen(false)
         setShowOption(false)
     }
@@ -87,7 +90,7 @@ function Editpost ({id,post,setModalOpen,setShowOption}) {
                         <label className="label99">Upload video</label>
                         <input
                         className="input99"
-                        type='text' value={video} onChange={(e) => setVideo(e.target.value)}>
+                        type='text' value={video} onChange={(e) => {setVideo(e.target.value)}}>
                         </input>
                     </div>
                 {/* : null} */}
