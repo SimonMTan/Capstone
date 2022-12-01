@@ -53,14 +53,38 @@ const NavBar = () => {
             </NavLink>
           </div>    <<<< uncomment this later*/}
         </div>
-        <div className='navbar_right'>
-          <img className='profile_pic99' onClick={openMenu} src={user?.profile_photo?user?.profile_photo:defaultpic} ></img>
+        <div className='nav-wrapper98'>
+          <div className='nav-wrapper99'>
+              <div className="dev-socials-links00">
+                  <p className="dev-socials-links99">
+                  <a href="https://github.com/SimonMTan/Capstone" target="_blank" rel="noreferrer">
+                      <i className="fa-brands fa-github"></i></a>
+                  </p>
+              </div>
+              <div>
+                  <p className="dev-socials-links99">
+                  <a href="https://www.linkedin.com/in/simonmtan/" target="_blank" rel="noreferrer">
+                      <i className="fa-brands fa-linkedin"></i>
+                  </a>
+                  </p>
+              </div>
+              <div>
+                  <p className="dev-socials-links99">
+                  <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                      <i className="fa-brands fa-facebook"></i>
+                  </a>
+                  </p>
+              </div>
+            </div>
+            <div className='navbar_right'>
+              <img className='profile_pic99' onClick={openMenu} src={user?.profile_photo?user?.profile_photo:defaultpic} ></img>
 
-          {showMenu && (
-            <LogoutButton />
-            )}
+              {showMenu && (
+                <LogoutButton />
+                )}
 
-        </div>
+            </div>
+          </div>
       </div>
     // </nav>
   );

@@ -1,4 +1,3 @@
-
 .createcom_wrapper{
     display:flex;
     flex-direction: row;
@@ -18,4 +17,9 @@
 
 .submit_button1{
     display: none;
+}
+
+.error235{
+    color:red;
+    font-size:12px;
 }

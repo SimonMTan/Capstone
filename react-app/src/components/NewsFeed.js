@@ -133,7 +133,7 @@ function NewsFeed () {
                                                 }
                                             </div>
                                             {com.user_id === user.id ?
-                                            <div onClick={()=>setShowoption2(com.id)} >...</div>
+                                            <div className="threedots" onClick={()=>setShowoption2(com.id)} >...</div>
                                             :null}
 
                                                 {showoption2 === com.id ?

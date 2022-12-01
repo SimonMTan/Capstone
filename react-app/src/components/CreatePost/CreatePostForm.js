@@ -18,11 +18,11 @@ function CreatePost ({setModalOpen}) {
     useEffect(() => {
         const err = []
         if(!msg && !img && !video) err.push("Please input something to post")
-        if(img.endsWith('.jpg') || img.endsWith('.png') || img.endsWith('.jpeg') || img.endsWith('.gif')) err.push("Please input a valid image link")
-        if(video.endsWith('.mp4') || video.endsWith('.mov') || video.endsWith('.avi') || video.endsWith('.wmv')) err.push("Please input a valid video link")
+        if(!img.endsWith('.jpg') && !img.endsWith('.png') && !img.endsWith('.jpeg') && !img.endsWith('.gif')) err.push("Please input a valid image link")
+        if(!video.endsWith('.mp4') && !video.endsWith('.mov') && !video.endsWith('.avi') && !video.endsWith('.wmv')) err.push("Please input a valid video link")
         if(msg.length > 200) err.push("Message is too long")
         setErrors(err)
-        console.log(errors)
+        // console.log(errors)
     },[msg,img,video])
 
     const handleSubmit = async (e) => {
