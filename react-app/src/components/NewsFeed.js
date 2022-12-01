@@ -35,19 +35,19 @@ function NewsFeed () {
         // setShowEdit(true)
     },[dispatch])
 
-    useEffect(() => {
-        if (!showOption) return;
-        // if(!showoption2) return;
+    // useEffect(() => {
+    //     if (!showOption) return;
+    //     // if(!showoption2) return;
 
-        const closeMenu = () => {
-            setShowOption(false)
-            // setShowoption2(false)
-        };
+    //     const closeMenu = () => {
+    //         setShowOption(false)
+    //         // setShowoption2(false)
+    //     };
 
-        document.addEventListener('click', closeMenu);
+    //     document.addEventListener('click', closeMenu);
 
-        return () => document.removeEventListener("click", closeMenu);
-        }, [showOption]);
+    //     return () => document.removeEventListener("click", closeMenu);
+    //     }, [showOption]);
 
     // useEffect(() => {
     //     // if (!showOption) return;
@@ -117,7 +117,7 @@ function NewsFeed () {
                                     <div key={com.id}>
                                         <div className='username_wrapper'>
                                             {com.comment_user.profile_photo ?
-                                                <img src={com.comment_user.profile_photo} ></img> :
+                                                <img className='profile_pic' src={com.comment_user.profile_photo} ></img> :
                                                 <img className='profile_pic' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'></img>
                                             }
                                             <div className="xxx">
@@ -133,7 +133,7 @@ function NewsFeed () {
                                                 }
                                             </div>
                                             {com.user_id === user.id ?
-                                            <div onClick={()=>setShowoption2(com.id)} >...</div>
+                                            <div className="threedots" onClick={()=>setShowoption2(com.id)} >...</div>
                                             :null}
 
                                                 {showoption2 === com.id ?

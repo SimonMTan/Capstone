@@ -18,10 +18,28 @@ def seed_posts():
         post_msg="This is a test post 3",
         post_video='https://i.imgur.com/eWrYBlL.mp4'
     )
+    post4 = Post(
+        user_id=3,
+        post_msg="This is a test post 4",
+        post_video='https://i.imgur.com/eWrYBlL.mp4'
+    )
+    post5 = Post(
+        user_id=1,
+        post_msg="This is a test post 4",
+        post_video='https://i.imgur.com/eWrYBlL.mp4'
+    )
+    post6 = Post(
+        user_id=1,
+        post_msg="This is a test post 4",
+        post_video='https://i.imgur.com/eWrYBlL.mp4'
+    )
 
     db.session.add(post1)
     db.session.add(post2)
     db.session.add(post3)
+    db.session.add(post4)
+    db.session.add(post5)
+    db.session.add(post6)
     db.session.commit()
 
 def undo_posts():

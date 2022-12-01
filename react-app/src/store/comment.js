@@ -37,13 +37,13 @@ export const getCommentsThunk = () => async (dispatch) => {
 }
 
 export const createCommentThunk = (info,id) => async (dispatch) => {
-    console.log(info,id, 'thisisinsidecommentthunk')
+    // console.log(info,id, 'thisisinsidecommentthunk')
     const response = await fetch(`/api/comments/${id}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(info)
     })
-    console.log(response, 'this is response from createcomment thunk')
+    // console.log(response, 'this is response from createcomment thunk')
     if(response.ok){
         const data = await response.json()
         dispatch(createComment(data))
@@ -53,7 +53,7 @@ export const createCommentThunk = (info,id) => async (dispatch) => {
 }
 
 export const editCommentThunk = (info,id) => async (dispatch) => {
-    console.log(info,id, 'thisisinsidecommentthunkedit')
+    // console.log(info,id, 'thisisinsidecommentthunkedit')
     const response = await fetch(`/api/comments/${id}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},

@@ -1,0 +1,23 @@
+.footer-wrapper{
+    width:100%;
+    height: 100%;
+    display:flex;
+    flex-direction:row;
+    justify-content:space-around;
+    align-items:center;
+    text-decoration: none;
+    align-content: center;
+
+}
+
+.dev-socials-links2{
+    /* width:20%; */
+    font-size: 250px;
+    text-decoration: none;
+    /* color: inherit; */
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}

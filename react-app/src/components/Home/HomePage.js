@@ -4,7 +4,7 @@ import LoginForm from '../auth/LoginForm';
 import SignUpForm from '../auth/SignUpForm';
 import NavBar from '../Navbar/NavBar';
 import { useState } from 'react';
-
+import './home.css'
 const Homepage = () => {
     const user = useSelector(state => state.session.user);
     const [login, setLogin] = useState(true);
@@ -21,7 +21,30 @@ const Homepage = () => {
                 <LoginForm setLogin={setLogin} /> :
                 <SignUpForm setLogin={setLogin} />
                 }
-            </div>}
+                <div className='footer-wrapper'>
+                    <div className="dev-socials-links">
+                        <p className="dev-socials-links2">
+                        <a href="https://github.com/SimonMTan/Capstone" target="_blank" rel="noreferrer">
+                            <i className="fa-brands fa-github"></i></a>
+                        </p>
+                    </div>
+                    <div>
+                        <p className="dev-socials-links2">
+                        <a href="https://www.linkedin.com/in/simonmtan/" target="_blank" rel="noreferrer">
+                            <i className="fa-brands fa-linkedin"></i>
+                        </a>
+                        </p>
+                    </div>
+                    <div>
+                        <p className="dev-socials-links2">
+                        <a href="https://facebook.com" target="_blank" rel="noreferrer">
+                            <i className="fa-brands fa-facebook"></i>
+                        </a>
+                        </p>
+                    </div>
+                  </div>
+            </div>
+            }
         </div>
     )
 }

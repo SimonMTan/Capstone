@@ -23,6 +23,7 @@
     border-radius: 50%;
     width:30px;
     height:30px;
+    margin-top:2px;
 }
 
 .navbar_right{
@@ -36,3 +37,16 @@
     margin-left: 5px;
     margin-top:2px;
   }
+
+.nav-wrapper98{
+    display:flex;
+}
+.nav-wrapper99{
+    display:flex;
+}
+
+.dev-socials-links99{
+    text-decoration: none;
+    font-size: 30px;
+    margin-right: 10px;
+}

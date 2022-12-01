@@ -6,16 +6,30 @@ import './createcomment.css'
 export default function CreateComments({post}){
     const dispatch = useDispatch()
     const [comment, setComment] = useState('')
-    // console.log(comment,post.id, 'thisisinsidecomment')
+    const [errors , setErrors] = useState([])
+    const [displayErrors12 , setDisplayErrors12] = useState(false)
 
-    useEffect(() => {},[])
+
+    useEffect(() => {
+        const err = []
+        if(!comment) err.push("Please input something to post")
+        if(comment.length > 200) err.push("Please input less than 200 characters")
+        setErrors(err)
+    },[comment])
 
     const handleSubmit2 = async(e) => {
         e.preventDefault();
+        if(errors.length > 0) {
+            setDisplayErrors12(true)
+            return
+        }
+        if(errors.length === 0){
         const info = {comment:comment}
         await dispatch(createCommentThunk(info,post.id)).then(await dispatch(getPostsThunk()))
         // console.log(comment,post.id, '##thisisinsidecomment22222')
         setComment('')
+        setDisplayErrors12(false)
+        }
     }
 
     return (
@@ -31,6 +45,14 @@ export default function CreateComments({post}){
                     {/* <button onClick={() => setModalOpen(false)}>Cancel</button> */}
                 </div>
             </form>
+            <div>
+                {displayErrors12?
+                    <div >
+                        {errors?.map((error, idx) => (
+                            <div className="error235" key={idx}>{error}</div>
+                        ))}
+                    </div>:null}
+            </div>
         </div>
     )
 }
