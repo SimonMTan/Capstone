@@ -24,11 +24,13 @@ function NewsFeed () {
     const[showEdit,setShowEdit] = useState(true)
     const[showOption,setShowOption] = useState(false)
     const [showComment,setShowComment] = useState(false)
+    // const [isloaded,setIsLoaded] = useState(false)
 
     // const editComment = () => {
     //     setShowEdit(false)
     //     setShowoption2(false)
     // }
+
     // console.log(comment)
     useEffect(() => {
         dispatch(getPostsThunk());
@@ -66,7 +68,7 @@ function NewsFeed () {
 
     const defaultpic = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'
     const defaultimg =  'https://bemyeyes-assets.s3.amazonaws.com/podcasts/smm/podcast-cover-Cats.jpg'
-    const defaultvideo = 'https://www.youtube.com/embed/1w7OgIMMRc4'
+    const defaultvideo = 'https://i.imgur.com/eWrYBlL.mp4'
     return (
         <div className="newsfeed_wrapper">
             <div className="newfeed_info_wrapper">
@@ -102,9 +104,9 @@ function NewsFeed () {
                         <div className="msg">{post.post_msg}</div>
                         {post.post_img ?<img width={'680'} height='550px' src={post.post_img} onError={(e) => e.target.src = defaultimg}></img>: null}
                         {post.post_video ?
-                        <video width='680px' height='550px'controls>
-                            <source src={post.post_video} onError={(e) => e.target.src = defaultvideo} type="video/mp4">
-                            </source>
+                        <video key={post.post_video} width='680px' height='550px' controls src={post.post_video} onError={(e) => e.target.src = defaultvideo} type="video/mp4">
+                            {/* <source >
+                            </source> */}
                         </video>: null
                         }
                         <div className="likeorcomment">
