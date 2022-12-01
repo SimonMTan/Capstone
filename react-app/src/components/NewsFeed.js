@@ -65,7 +65,7 @@ function NewsFeed () {
 
 
     const defaultpic = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'
-
+    const defaultvideo = 'https://www.youtube.com/embed/1w7OgIMMRc4'
     return (
         <div className="newsfeed_wrapper">
             <div className="newfeed_info_wrapper">
@@ -99,10 +99,10 @@ function NewsFeed () {
                             </div>
                         </div>
                         <div className="msg">{post.post_msg}</div>
-                        {post.post_img ?<img width={'680'} height='550px' src={post.post_img}></img>: null}
+                        {post.post_img ?<img width={'680'} height='550px' src={post.post_img} onError={(e) => e.target.src = defaultpic}></img>: null}
                         {post.post_video ?
                         <video width='680px' height='550px'controls>
-                            <source src={post.post_video} type="video/mp4">
+                            <source src={post.post_video} onError={(e) => e.target.src = defaultvideo} type="video/mp4">
                             </source>
                         </video>: null
                         }
