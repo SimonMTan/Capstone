@@ -10,9 +10,9 @@ function Editpost ({id,post,setModalOpen,setShowOption}) {
     // if(!post.post_img) post.post_msg = ''
     // if(!post.post_video) post.post_msg = ''
     console.log(post, 'after reassigning post_msg, post_img, post_video')
-    const [msg , setMsg] = useState(post.post_msg)
-    const [img , setImg] = useState(post.post_img)
-    const [video , setVideo] = useState(post.post_video)
+    const [msg , setMsg] = useState(post.post_msg? post.post_msg : '')
+    const [img , setImg] = useState(post.post_img? post.post_img : '')
+    const [video , setVideo] = useState(post.post_video? post.post_video : '')
     // const [showModal, setShowModal] = useState(setShowModal);
     const [errors , setErrors] = useState([])
     const [displayErrors , setDisplayErrors] = useState(false)
@@ -23,9 +23,15 @@ function Editpost ({id,post,setModalOpen,setShowOption}) {
     useEffect(() => {
         const err = []
         if(!msg && !img && !video) err.push("Please input something to post")
-        if(!img.endsWith('.jpg') && !img.endsWith('.png') && !img.endsWith('.jpeg') && !img.endsWith('.gif')) err.push("Please input a valid image link")
-        if(!video.endsWith('.mp4') && !video.endsWith('.mov') && !video.endsWith('.avi') && !video.endsWith('.wmv')) err.push("Please input a valid video link")
-        if(msg.length > 200) err.push("Message is too long")
+        if(img){
+            if(!img.endsWith('.jpg') && !img.endsWith('.png') && !img.endsWith('.jpeg') && !img.endsWith('.gif')) err.push("Please input a valid image link")
+        }
+        if(video){
+            if(!video.endsWith('.mp4') && !video.endsWith('.mov') && !video.endsWith('.avi') && !video.endsWith('.wmv')) err.push("Please input a valid video link")
+        }
+        if(msg){
+            if(msg.length > 200) err.push("Message is too long")
+        }
         setErrors(err)
         console.log(errors)
         console.log(!img.endsWith('.png') && !img.endsWith('.jpeg') , 'checkingerror')

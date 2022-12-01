@@ -117,7 +117,7 @@ function NewsFeed () {
                                     <div key={com.id}>
                                         <div className='username_wrapper'>
                                             {com.comment_user.profile_photo ?
-                                                <img src={com.comment_user.profile_photo} ></img> :
+                                                <img className='profile_pic' src={com.comment_user.profile_photo} ></img> :
                                                 <img className='profile_pic' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'></img>
                                             }
                                             <div className="xxx">

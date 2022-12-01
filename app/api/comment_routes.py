@@ -22,7 +22,7 @@ def comments(id):
 @comment_routes.route('/<int:id>', methods=['POST'])
 def create_comment(id): # id is the post id
     form = CommentForm()
-    print('<<<<<<<<FORM DATA: >>>>>>>>>', form.data)
+    # print('<<<<<<<<FORM DATA: >>>>>>>>>', form.data)
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         comment = Comment(
@@ -30,7 +30,7 @@ def create_comment(id): # id is the post id
             post_id = id,
             comment = form.comment.data
         )
-        print('<<<<<<<<comment: >>>>>>>>>', comment)
+        # print('<<<<<<<<comment: >>>>>>>>>', comment)
         db.session.add(comment)
         db.session.commit()
 
