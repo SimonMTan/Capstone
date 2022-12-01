@@ -77,7 +77,6 @@ function CreatePost ({setModalOpen}) {
                     </input>
                 </div>
 
-
                 <div>
                     <label className="label123">Video upload</label>
                     <input
