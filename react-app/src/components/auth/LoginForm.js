@@ -36,7 +36,7 @@ const LoginForm = ({setLogin}) => {
         // console.log(data,'this is data from login')
         const errs = {};
         for (let error of data){
-          if(error.startsWith('email')) errs.email = '⛔Email not found';
+          if(error.startsWith('email')) errs.email = '⛔Incorrect Email';
           if(error.startsWith('password')) errs.password = '⛔Incorrect password';
         }
         setShowErrors(true)
@@ -91,7 +91,7 @@ const LoginForm = ({setLogin}) => {
             onChange={updatePassword}
           />
         </div>
-        {showErrors && errors.password && (<div className='error'>{errors.password}</div>)}
+        {showErrors && errors.email !=='⛔Incorrect Email' && errors.password && (<div className='error'>{errors.password}</div>)}
         <div className='submit_button21'>
           <button className='submit_button22' type='submit'>Log In</button>
         </div>
