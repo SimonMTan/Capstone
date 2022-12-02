@@ -1,7 +1,8 @@
 ![h-is-for-homies](https://user-images.githubusercontent.com/103973779/205349834-7e5b49da-102d-4494-8c40-81b61531bf0b.png)
 
 <h1> About Homielist </h1>
-Homielist is inspired by [Facebook](https://facebook.com). The site allow users to connect people across the world.
+
+Homielist is inspired by [Facebook](https://facebook.com/). The site allow users to connect people across the world.
 
 **Live Site: [Homielist](https://homielist.onrender.com)**
 
