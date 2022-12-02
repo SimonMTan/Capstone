@@ -6,15 +6,15 @@ Homielist is inspired by [Facebook](https://facebook.com/). The site allow users
 
 **Live Site: [Homielist](https://homielist.onrender.com)**
 
-Please see below links to Wiki page
+<h3> Please see below links to Wiki page </h3>
 
--[Database Schema](https://github.com/SimonMTan/Capstone/wiki/Database-Schema-Design)
+- [Database Schema](https://github.com/SimonMTan/Capstone/wiki/Database-Schema-Design)
 
--[Feature List](https://github.com/SimonMTan/Capstone/wiki/MVP-Features)
+- [Feature List](https://github.com/SimonMTan/Capstone/wiki/MVP-Features)
 
--[User Stories](https://github.com/SimonMTan/Capstone/wiki/User-Stories)
+- [User Stories](https://github.com/SimonMTan/Capstone/wiki/User-Stories)
 
--[WireFrame](https://github.com/SimonMTan/Capstone/wiki/Wire-Frames)
+- [WireFrame](https://github.com/SimonMTan/Capstone/wiki/Wire-Frames)
 
 <h2> Languages: </h2>
 
