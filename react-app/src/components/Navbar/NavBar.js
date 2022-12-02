@@ -57,7 +57,7 @@ const NavBar = () => {
           <div className='nav-wrapper99'>
               <div className="dev-socials-links00">
                   <p className="dev-socials-links99">
-                  <a href="https://github.com/SimonMTan/Capstone" target="_blank" rel="noreferrer">
+                  <a href="https://github.com/SimonMTan" target="_blank" rel="noreferrer">
                       <i className="fa-brands fa-github"></i></a>
                   </p>
               </div>
@@ -70,8 +70,8 @@ const NavBar = () => {
               </div>
               <div>
                   <p className="dev-socials-links99">
-                  <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                      <i className="fa-brands fa-facebook"></i>
+                  <a href="https://github.com/SimonMTan/Capstone" target="_blank" rel="noreferrer">
+                      <i class="fa-solid fa-folder"></i>
                   </a>
                   </p>
               </div>
