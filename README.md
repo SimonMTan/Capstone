@@ -2,7 +2,7 @@
 
 <h1> About Homielist </h1>
 
-Homielist is inspired by [Facebook](https://facebook.com/). The site allow users to connect people across the world.
+Homielist is inspired by [Facebook](https://facebook.com/). The site allow users to connect people across the world. The site host only cool people in the world , Check it out!
 
 **Live Site: [Homielist](https://homielist.onrender.com)**
 
