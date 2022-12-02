@@ -9,6 +9,7 @@ import DeleteComment from "./DeleteComment/DeleteComment";
 import EditComment from "./EditComment/EditComment";
 import './NewsFeed.css'
 import Deletepost from "./Deletepost/Deletepost";
+import likeicon from './Logo/like.png'
 
 function NewsFeed () {
     const dispatch = useDispatch();
@@ -97,12 +98,10 @@ function NewsFeed () {
                                 <div>
                                     {showOption === post.id?
                                         <div>
-                                            {/* {post.user.id === user.id ? */}
                                             <div className="option2">
                                                 <div className='option3'><EditPostModal post={post} id={post.id} setShowOption={setShowOption}/></div>
                                                 <div className='option3'><Deletepost id={post.id} setShowOption={setShowOption}/></div>
                                             </div>
-                                            {/* : null} */}
                                         </div>
                                     : null}
                                 </div>
@@ -116,8 +115,23 @@ function NewsFeed () {
                             </source> */}
                         </video>: null
                         }
+                        <div className="likeandcomment">
+                            {post.likes.length?
+                            <div className="like_container">
+                                <img className='likeicon' src={likeicon} width='20px' height='20px'></img>
+                                {post.likes.length == 1 ?
+                                <div>{post.likes[0].like_user.first_name}{' '}{post.likes[0].like_user.last_name}</div> :
+                                <div>{post.likes.length}</div>}
+                            </div>
+                            :<div></div>}
+                            {post.comments.length?
+                            <div>
+                                {post.comments.length} {post.comments.length<2?'comment':'comments'}
+                            </div>
+                            :null}
+                        </div>
                         <div className="likeorcomment">
-                            {/* <div className="like">like </div>   <<<< uncomment this later*/}
+                            <div className="like">like </div>
                             <div className="like" onClick={() => setShowComment(post.id)}>comment</div>
                         </div>
                         <div className="comment_wrapper">
@@ -165,7 +179,6 @@ function NewsFeed () {
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 ))}
             </div>

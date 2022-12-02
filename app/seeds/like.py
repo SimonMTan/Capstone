@@ -37,6 +37,11 @@ def seed_likes():
         status=1
     )
 
+    like8 = Like(
+        user_id=1,
+        post_id=6,
+        status=1
+    )
     db.session.add(like1)
     db.session.add(like2)
     db.session.add(like3)
@@ -44,6 +49,7 @@ def seed_likes():
     db.session.add(like5)
     db.session.add(like6)
     db.session.add(like7)
+    db.session.add(like8)
     db.session.commit()
 
 def undo_likes():

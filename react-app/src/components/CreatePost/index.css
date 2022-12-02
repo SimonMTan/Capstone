@@ -1,3 +1,7 @@
 .yourmindbox{
     width:580px;
 }
+
+.yourmindbox:hover{
+    cursor: pointer;
+}
