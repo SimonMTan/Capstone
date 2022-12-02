@@ -23,11 +23,11 @@ def seed_posts():
         post_msg="This is a test post 4",
         post_video='https://i.imgur.com/0rJ7lge_lq.mp4'
     )
-    post5 = Post(
+    post7 = Post(
         user_id=1,
         post_msg="This is a test post 5"
-
     )
+
     post6 = Post(
         user_id=1,
         post_msg="This is a test post 6",
@@ -38,7 +38,7 @@ def seed_posts():
     db.session.add(post2)
     db.session.add(post3)
     db.session.add(post4)
-    db.session.add(post5)
+    db.session.add(post7)
     db.session.add(post6)
     db.session.commit()
 
