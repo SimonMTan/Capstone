@@ -9,12 +9,12 @@ export const presslike = (id) => async (dispatch) => {
     })
 }
 
-export const getLikesThunk = () => async (dispatch) => {
-    const response = await fetch(`/api/likes/${id}/total`)
-    if (response.ok) {
-        const data = await response.json()
-        // dispatch(getLikes(data))
-        return data
-    }
-    return
-}
+// export const getLikesThunk = () => async (dispatch) => {
+//     const response = await fetch(`/api/likes/${id}/total`)
+//     if (response.ok) {
+//         const data = await response.json()
+//         // dispatch(getLikes(data))
+//         return data
+//     }
+//     return
+// }

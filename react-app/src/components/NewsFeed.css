@@ -139,17 +139,19 @@
     margin-top:10px;
     margin-bottom:10px;
 }
+
 .likeandcomment{
     display:flex;
     justify-content: space-between;
     margin-top:15px;
     margin-bottom:10px;
-    padding-top: 10px;
+    padding-top: 5px;
     padding-left:5px;
     padding-right:5px;
     /* border-top: 1px solid #CED0D4; */
     /* border-bottom:1px solid #CED0D4 ; */
 }
+
 .like_container{
     display:flex;
 }

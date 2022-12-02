@@ -4,16 +4,16 @@ from ..models import db,Like
 
 like_routes = Blueprint('likes',__name__)
 
-@like_routes.route('/<int:id>/total')
-def total_likes(id):
-    likes = Like.query.filter(Like.post_id == id).count()
-    print('''
-          -----------------
-          this is from the like total route
-          -----------------
-          ''',
-          likes)
-    return {'likes': likes}
+# @like_routes.route('/<int:id>/total')
+# def total_likes(id):
+#     likes = Like.query.filter(Like.post_id == id).count()
+#     print('''
+#           -----------------
+#           this is from the like total route
+#           -----------------
+#           ''',
+#           likes)
+#     return {'likes': likes}
 
 @like_routes.route('/<int:id>', methods=['POST'])
 def voted(id):
