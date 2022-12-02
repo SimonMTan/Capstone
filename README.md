@@ -56,10 +56,13 @@ Initial page loaded with Log in form attached
 
 <h2> To-Do List:</h2>
 
--Add Like feature
--Add Search feature
--Add User pages
--Add Aws upload to picture and video
+- Add Like feature
+
+- Add Search feature
+
+- Add User pages
+
+- Add Aws upload to picture and video
 
       
 ## Getting started
