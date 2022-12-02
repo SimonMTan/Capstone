@@ -8,22 +8,24 @@ import CreateComments from "./CreateComment/CreateComment";
 import DeleteComment from "./DeleteComment/DeleteComment";
 import EditComment from "./EditComment/EditComment";
 import './NewsFeed.css'
+import Deletepost from "./Deletepost/Deletepost";
 
 function NewsFeed () {
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
     const posts = useSelector(state => state.post);
     const allposts = Object.values(posts)
-    const flipPosts = []
+    let flipPosts = []
     for(let i = allposts.length - 1; i >= 0; i--) {
         flipPosts.push(allposts[i])
     }
-    // console.log(allposts, 'this is allposts')
+    console.log(allposts, 'this is allposts')
     const comment = useSelector(state => state.comment);
     const[showoption2, setShowoption2] = useState(false)
     const[showEdit,setShowEdit] = useState(true)
     const[showOption,setShowOption] = useState(false)
     const [showComment,setShowComment] = useState(false)
+    const [setId,setSetId] = useState()
     // const [isloaded,setIsLoaded] = useState(false)
 
     // const editComment = () => {
@@ -32,16 +34,12 @@ function NewsFeed () {
     // }
 
     // console.log(comment)
-    useEffect(() => {
-        dispatch(getPostsThunk());
-        // setShowEdit(true)
-    },[dispatch])
 
     // useEffect(() => {
-    //     if (!showOption) return;
-    //     // if(!showoption2) return;
+        //     if (!showOption) return;
+        //     // if(!showoption2) return;
 
-    //     const closeMenu = () => {
+        //     const closeMenu = () => {
     //         setShowOption(false)
     //         // setShowoption2(false)
     //     };
@@ -65,6 +63,15 @@ function NewsFeed () {
     //     return () => document.removeEventListener("click", closeMenu2);
     //     }, [showoption2]);
 
+    // const handleDelete = async(id) => {
+    //     await dispatch(deletePostThunk(id))
+    //     await dispatch(getPostsThunk())
+    // }
+
+    useEffect(() => {
+        dispatch(getPostsThunk());
+        // setShowEdit(true)
+    },[dispatch])
 
     const defaultpic = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'
     const defaultimg =  'https://bemyeyes-assets.s3.amazonaws.com/podcasts/smm/podcast-cover-Cats.jpg'
@@ -90,12 +97,12 @@ function NewsFeed () {
                                 <div>
                                     {showOption === post.id?
                                         <div>
-                                            {post.user.id === user.id ?
+                                            {/* {post.user.id === user.id ? */}
                                             <div className="option2">
                                                 <div className='option3'><EditPostModal post={post} id={post.id} setShowOption={setShowOption}/></div>
-                                                <div className='option3' onClick={()=>{dispatch(deletePostThunk(post.id)).then(()=>dispatch(getPostsThunk())) }}>Delete</div>
+                                                <div className='option3'><Deletepost id={post.id} setShowOption={setShowOption}/></div>
                                             </div>
-                                            : null}
+                                            {/* : null} */}
                                         </div>
                                     : null}
                                 </div>
@@ -136,8 +143,8 @@ function NewsFeed () {
                                                 }
                                             </div>
                                             {com.user_id === user.id ?
-                                            <div className="threedots" onClick={()=>setShowoption2(com.id)} >...</div>
-                                            :null}
+                                                <div className="threedots" onClick={()=>setShowoption2(com.id)} >...</div>
+                                                :null}
 
                                                 {showoption2 === com.id ?
                                                 <div className='comment_option_drop'>

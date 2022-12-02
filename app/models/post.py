@@ -18,6 +18,7 @@ class Post(db.Model):
 
     post_user = db.relationship("User", back_populates="user_post")
     post_comment = db.relationship("Comment", back_populates="comment_post",cascade="all, delete")
+    post_like = db.relationship("Like", back_populates="like_post",cascade="all, delete")
 
     def to_dict(self):
         return {
@@ -29,5 +30,6 @@ class Post(db.Model):
             "created_at": self.created_at,
             "updated_at": self.updated_at,
             'user': self.post_user.to_dict(),
-            'comments': [comment.to_dict() for comment in self.post_comment]
+            'comments': [comment.to_dict() for comment in self.post_comment],
+            'likes': [like.to_dict() for like in self.post_like]
         }

@@ -24,7 +24,7 @@ const Homepage = () => {
                 <div className='footer-wrapper'>
                     <div className="dev-socials-links">
                         <p className="dev-socials-links2">
-                        <a href="https://github.com/SimonMTan/Capstone" target="_blank" rel="noreferrer">
+                        <a href="https://github.com/SimonMTan" target="_blank" rel="noreferrer">
                             <i className="fa-brands fa-github"></i></a>
                         </p>
                     </div>
@@ -37,8 +37,8 @@ const Homepage = () => {
                     </div>
                     <div>
                         <p className="dev-socials-links2">
-                        <a href="https://facebook.com" target="_blank" rel="noreferrer">
-                            <i className="fa-brands fa-facebook"></i>
+                        <a href="https://github.com/SimonMTan/Capstone" target="_blank" rel="noreferrer">
+                            <i class="fa-solid fa-folder"></i>
                         </a>
                         </p>
                     </div>

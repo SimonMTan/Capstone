@@ -18,7 +18,7 @@ post_routes = Blueprint('posts', __name__)
 @post_routes.route('/')
 # @login_required
 def posts():
-    posts = Post.query.order_by(desc('id')).all()
+    posts = Post.query.all()
     # print(posts, '<<<<<<<<<<<<<<<<this is posts>>>>>>>>')
     return {"posts": [post.to_dict() for post in posts]}
 
@@ -72,11 +72,14 @@ def delete_post(id):
     post = Post.query.get(id)
 
     if not post:
-            return {'errors': 'Track not found', 'statusCode': 404}
+        return {'errors': 'Track not found', 'statusCode': 404}
 
     if current_user.id != post.user_id:
         return {'errors': 'Unauthorized', 'statusCode': 401}
 
     db.session.delete(post)
     db.session.commit()
-    return post.to_dict()
+    return {
+    "message": "Successfully deleted",
+    "statusCode": 200
+    }
