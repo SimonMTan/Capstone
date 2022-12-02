@@ -79,7 +79,7 @@ export const deletePostThunk = (id) => async (dispatch) => {
 
     if(response.ok){
         const data = await response.json()
-        dispatch(deletePost(data))
+        dispatch(deletePost(id))
         // return data
     }
 
@@ -109,7 +109,7 @@ export default function postReducer(state = initialState, action) {
         case DELETE_POST:
             newState = {...state}
             console.log(action.payload, 'this is action.payload')
-            delete newState[action.payload.id]
+            delete newState[action.payload]
             return newState
         default:
             return state;
