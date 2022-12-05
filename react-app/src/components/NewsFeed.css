@@ -4,6 +4,9 @@
     align-items: center;
     background-color: #F0F2F5;
     /* width:480px; */
+    text-overflow: ellipsis;
+    overflow-wrap: break-word;
+    white-space: wrap;
     }
 
 .newsfeed_info_wrapper{
@@ -185,7 +188,7 @@
 
 .comment_option_drop{
     border: 1px solid black;
-    width:60px;
+    width:65px;
     border-radius: 10px;
     background-color: white;
     z-index: 5;
