@@ -199,6 +199,8 @@
 }
 
 .liked:hover{
+    background-color: #F0F2F5;
+    border-radius: 10px;
     cursor: pointer;
 }
 
