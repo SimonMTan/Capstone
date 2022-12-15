@@ -198,6 +198,10 @@
     cursor: pointer;
 }
 
+.liked:hover{
+    cursor: pointer;
+}
+
 .comment_wrapper{
     width:680px;
 }
