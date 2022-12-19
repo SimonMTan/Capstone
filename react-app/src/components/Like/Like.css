@@ -1,0 +1,13 @@
+.clickarea{
+    width:326px;
+    /* align-items: center;
+    align-content: center; */
+    text-align: center;
+}
+
+.clickareamain{
+    display: flex;
+    /* align-items: center;
+    align-content: center;
+    text-align: center; */
+}

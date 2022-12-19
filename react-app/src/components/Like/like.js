@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from "react-redux";
 import { presslike } from "../../store/like";
 import { getPostsThunk } from "../../store/post";
+import './Like.css'
 
 export default function Likeaction ({id,like}) {
 
@@ -16,12 +17,12 @@ export default function Likeaction ({id,like}) {
     }
 
     return (
-        <div>
-            <div onClick={handleclick} >
+        // <div>
+            <div className="clickareamain" onClick={handleclick} >
                 {like?
-                <div><i class="fa-solid fa-thumbs-up"></i>&nbsp;like</div>:
-                <div><i class="fa-regular fa-thumbs-up"></i>&nbsp;like</div>}
+                <div className="clickarea"><i class="fa-solid fa-thumbs-up"></i>&nbsp;like</div>:
+                <div className="clickarea"><i class="fa-regular fa-thumbs-up"></i>&nbsp;like</div>}
             </div>
-        </div>
+        // </div>
     )
 }
