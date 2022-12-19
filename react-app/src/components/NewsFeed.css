@@ -29,7 +29,7 @@
     height:30px;
     padding:5px;
     margin-left: 5px;
-
+    margin-top:5px;
 }
 
 .create_post{
@@ -85,14 +85,18 @@
 
 
 .name{
-    margin-left: 10px;
-    margin-top:5px;
+    margin-left: 8px;
+    padding-top:13px;
 
 }
 
 .option{
     position:relative;
     margin-right:5px;
+}
+
+.threedotsoptions:hover{
+    cursor: pointer;
 }
 
 .option2{
@@ -138,6 +142,7 @@
     padding-bottom: 10px;
     margin-top:10px;
     margin-bottom:10px;
+    padding-left:5px;
 }
 
 .likeandcomment{

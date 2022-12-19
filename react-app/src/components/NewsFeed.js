@@ -7,6 +7,7 @@ import CreatePostModal from "./CreatePost";
 import CreateComments from "./CreateComment/CreateComment";
 import DeleteComment from "./DeleteComment/DeleteComment";
 import EditComment from "./EditComment/EditComment";
+import Likeaction from "./Like/like"
 import './NewsFeed.css'
 import Deletepost from "./Deletepost/Deletepost";
 import likeicon from './Logo/like.png'
@@ -94,7 +95,7 @@ function NewsFeed () {
                                 </div>
                             <div className='option'>
                                 {post.user.id === user.id ?
-                                <div  onClick={() => setShowOption(post.id)}>...</div>:null}
+                                <div className="threedotsoptions"  onClick={() => setShowOption(post.id)}>...</div>:null}
                                 <div>
                                     {showOption === post.id?
                                         <div>
@@ -108,9 +109,9 @@ function NewsFeed () {
                             </div>
                         </div>
                         <div className="msg">{post.post_msg}</div>
-                        {post.post_img ?<img width={'680'} height='550px' src={post.post_img} onError={(e) => e.target.src = defaultimg}></img>: null}
+                        {post.post_img ?<img width={'680'} height='600px' src={post.post_img} onError={(e) => e.target.src = defaultimg}></img>: null}
                         {post.post_video ?
-                        <video key={post.post_video} width='680px' height='550px' controls src={post.post_video} onError={(e) => e.target.src = defaultvideo} type="video/mp4">
+                        <video key={post.post_video} width='680px' height='600px' controls src={post.post_video} onError={(e) => e.target.src = defaultvideo} type="video/mp4">
                             {/* <source >
                             </source> */}
                         </video>: null
@@ -132,8 +133,8 @@ function NewsFeed () {
                         </div>
                         <div className="likeorcomment">
                             {(post.likes.filter(like => like.user_id == user.id).length != 0)?
-                            <div className={"liked"}> <i class="fa-solid fa-thumbs-up"></i>&nbsp;Like</div>:
-                            <div className={"like"}> <i class="fa-regular fa-thumbs-up"></i>&nbsp;Like</div>}
+                            <div className={"liked"}> <i class="fa-solid fa-thumbs-up"></i>&nbsp;<Likeaction id={post.id}/></div>:
+                            <div className={"like"}> <i class="fa-regular fa-thumbs-up"></i>&nbsp;<Likeaction id={post.id}/></div>}
                             {/* need to wrap line 134 with terinary rather than just classname*/}
                             <div className="like" onClick={() => setShowComment(post.id)}><i class="fa-regular fa-comment"></i>&nbsp;Comment</div>
                         </div>
