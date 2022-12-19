@@ -1,6 +1,6 @@
 import { useState ,useEffect} from "react"
 import { useDispatch, useSelector } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
 import {createPostThunk} from '../../store/post'
 import './Createpostform.css'
 

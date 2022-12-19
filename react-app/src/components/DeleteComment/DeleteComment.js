@@ -1,6 +1,6 @@
 import {Modal} from '../../context/Modal'
 import React,{ useState} from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { deleteCommentThunk } from '../../store/comment'
 import { getPostsThunk } from '../../store/post'
 import './Deletecomment.css'

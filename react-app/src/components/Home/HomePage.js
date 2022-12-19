@@ -37,6 +37,20 @@ const Homepage = () => {
                     </div>
                     <div>
                         <p className="dev-socials-links2">
+                        <a href="https://simonmtan.github.io/" target="_blank" rel="noreferrer">
+                            <i class="fa-solid fa-globe"></i>
+                        </a>
+                        </p>
+                    </div>
+                    <div>
+                        <p className="dev-socials-links2">
+                        <a href="https://angel.co/u/simon-tan-9" target="_blank" rel="noreferrer">
+                            <i class="fa-brands fa-angellist"></i>
+                        </a>
+                        </p>
+                    </div>
+                    <div>
+                        <p className="dev-socials-links2">
                         <a href="https://github.com/SimonMTan/Capstone" target="_blank" rel="noreferrer">
                             <i class="fa-solid fa-folder"></i>
                         </a>

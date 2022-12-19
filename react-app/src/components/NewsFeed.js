@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import {getPostsThunk} from '../store/post'
 import EditPostModal from "./Editpost";
-import {deletePostThunk} from '../store/post'
+// import {deletePostThunk} from '../store/post'
 import CreatePostModal from "./CreatePost";
 import CreateComments from "./CreateComment/CreateComment";
 import DeleteComment from "./DeleteComment/DeleteComment";
