@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { presslike } from "../../store/like";
 import { getPostsThunk } from "../../store/post";
 
-export default function Likeaction ({id}) {
+export default function Likeaction ({id,like}) {
 
     const dispatch = useDispatch();
     const user = useSelector(state => state.session.user);
@@ -17,7 +17,11 @@ export default function Likeaction ({id}) {
 
     return (
         <div>
-            <div onClick={handleclick} >like </div>
+            <div onClick={handleclick} >
+                {like?
+                <div><i class="fa-solid fa-thumbs-up"></i>&nbsp;like</div>:
+                <div><i class="fa-regular fa-thumbs-up"></i>&nbsp;like</div>}
+            </div>
         </div>
     )
 }

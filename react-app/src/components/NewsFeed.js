@@ -133,8 +133,8 @@ function NewsFeed () {
                         </div>
                         <div className="likeorcomment">
                             {(post.likes.filter(like => like.user_id == user.id).length != 0)?
-                            <div className={"liked"}> <i class="fa-solid fa-thumbs-up"></i>&nbsp;<Likeaction id={post.id}/></div>:
-                            <div className={"like"}> <i class="fa-regular fa-thumbs-up"></i>&nbsp;<Likeaction id={post.id}/></div>}
+                            <div className={"liked"}> <Likeaction id={post.id}like={true}/></div>:
+                            <div className={"like"}> <Likeaction id={post.id}like={false}/></div>}
                             {/* need to wrap line 134 with terinary rather than just classname*/}
                             <div className="like" onClick={() => setShowComment(post.id)}><i class="fa-regular fa-comment"></i>&nbsp;Comment</div>
                         </div>
