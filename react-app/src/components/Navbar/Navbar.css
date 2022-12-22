@@ -6,24 +6,35 @@
 .navbar_mid{
     display:flex;
     justify-content:space-between;
-    width : 25%;
+    width:34%;
+    gap:5%
 }
 .navbar_mid_left{
     width:50%;
     display:flex;
     justify-content: center;
-
 }
 
 .navbar_left{
     display:flex;
+    width: 180px;
+}
+
+.searchbar{
+    display:flex;
+    align-items: center;
+}
+.active2{
+    border-bottom: 5px solid #1777F3;
 }
 
 .profile_pic99{
     border-radius: 50%;
-    width:30px;
-    height:30px;
+    width:35px;
+    height:35px;
     margin-top:2px;
+    margin-right: 5px;
+    margin-left: 5px;
 }
 
 .navbar_right{
@@ -31,15 +42,30 @@
 }
 
 #icon {
-    height: 30px;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    padding-left:10px;
+    margin-top:8px;
+    margin-bottom: 8px;
+  }
+
+  #icon2 {
+    height: 28px;
     width: auto;
     display: flex;
-    margin-left: 5px;
-    margin-top:2px;
+    /* margin-left:10px; */
+    margin-top:8px;
+    margin-bottom: 8px;
+    font-size: 28px;
+    color:#1777F3;
+    /* background-color: #1777F3; */
   }
 
 .nav-wrapper98{
     display:flex;
+    align-items: center;
+    margin-right: 5px;
 }
 .nav-wrapper99{
     display:flex;
@@ -47,6 +73,6 @@
 
 .dev-socials-links99{
     text-decoration: none;
-    font-size: 30px;
+    font-size: 35px;
     margin-right: 10px;
 }

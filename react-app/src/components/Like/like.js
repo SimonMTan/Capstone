@@ -11,9 +11,6 @@ export default function Likeaction ({id,like}) {
 
     const handleclick = async() => {
         await dispatch(presslike(id)).then(dispatch(getPostsThunk()))
-        // await dispatch(presslike(id))
-        // await dispatch(getPostsThunk())
-
     }
 
     return (

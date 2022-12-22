@@ -35,23 +35,26 @@ const NavBar = () => {
     // <nav>
       <div className='navbar_wrapper'>
         <div className='navbar_left'>
-          <NavLink to='/' exact={true} activeClassName='active'>
+          <NavLink className='Logo' to='/' exact={true} >
             <img id="icon" src={HomieLogo} alt="Logo"></img>
           </NavLink>
-          {/* <div>searchbar</div>  <<< uncomment this later*/}
+          <label className='searchbar' >
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input placeholder='Search Homielist...' type='search'></input>
+          </label>
         </div>
 
         <div className='navbar_mid'>
-          <div className='navbar_mid_left'>
-            <NavLink to='/' exact={true} activeClassName='active'>
-              <img id="icon" src={Home} alt="Logo"></img>
+          {/* <div > */}
+            <NavLink className='navbar_mid_left active2' to='/' exact={true} activeClassName='active'>
+              <img id="icon2" src={Home} alt="homeLogo"></img>
             </NavLink>
-          </div>
-          {/* <div>
-            <NavLink to={`/users/${user?.id}`} exact={true} activeClassName='active'>
-              Users
+          {/* </div> */}
+          {/* <div> */}
+            <NavLink className='navbar_mid_left' to={`/users/${user?.id}`} exact={true} activeClassName='active'>
+            <i id="icon2" src={Home} alt="profileLogo" class="fa-regular fa-user"></i>
             </NavLink>
-          </div>    <<<< uncomment this later*/}
+          {/* </div> */}
         </div>
         <div className='nav-wrapper98'>
           <div className='nav-wrapper99'>
