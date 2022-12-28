@@ -9,6 +9,7 @@
     width:34%;
     gap:5%
 }
+
 .navbar_mid_left{
     width:50%;
     display:flex;
@@ -24,6 +25,7 @@
     display:flex;
     align-items: center;
 }
+
 .active2{
     border-bottom: 5px solid #1777F3;
 }
@@ -67,6 +69,7 @@
     align-items: center;
     margin-right: 5px;
 }
+
 .nav-wrapper99{
     display:flex;
 }
