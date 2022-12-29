@@ -9,4 +9,5 @@ def search_user():
     if "q" in request.args:
         search = [term.lower() for term in request.args['q'].split()]
         print(search)
-        result = User.first_name.ilike(f"%{search}%")
+    result = User.first_name.ilike(f"%{search}%")
+    return {'search_result':result}
