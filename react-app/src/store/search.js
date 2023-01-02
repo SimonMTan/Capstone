@@ -14,7 +14,7 @@ export const searchthunk = (searchterm) => async(dispatch) =>{
         dispatch(searchaction(data))
         return data
     }
-    return
+    return 
 }
 
 const searchreducer = (state = {},action) =>{

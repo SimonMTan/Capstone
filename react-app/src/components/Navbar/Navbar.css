@@ -26,6 +26,11 @@
     align-items: center;
 }
 
+.searchbar1{
+    display:flex;
+    align-items: center;
+}
+
 .active2{
     border-bottom: 5px solid #1777F3;
 }
