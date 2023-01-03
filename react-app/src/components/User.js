@@ -36,20 +36,25 @@ function User() {
     // </ul>
     <>
       <NavBar />
-      <div className='userPage'>
-        {user.cover_photo ?
-        <img className='cover_photo' src={user.cover_photo} alt=''/> :
-        <div className='default_cover_photo'></div>}
-        {user.profile_photo?
-        <img className='profile_pic2' src={user.profile_photo} alt="profile pic" /> :
-        <img className='profile_pic2' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s' alt="profile pic" />
-        }
-        <div>{user.first_name} {user.last_name}</div>
+      <div>
+        <div className='userPage'>
+          {user.cover_photo ?
+          <img className='cover_photo' src='https://imgur.com/ukzX2Tf.png' alt=''/> :
+          <div className='cover_photo'></div>}
+        </div>
+        <div className='profilepic_name'>
+          {user.profile_photo?
+          <img className='profile_pic2' src={user.profile_photo} alt="profile pic" /> :
+          <img className='profile_pic2' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s' alt="profile pic" />
+          }
+          <div className='user_fullname'>{user.first_name} {user.last_name}</div>
+        </div>
         <div>
           <div>Intro</div>
           <div>{user.bio ? user.bio: 'Bio information'}</div>
         </div>
       </div>
+
     </>
   );
 }

@@ -32,22 +32,21 @@ const NavBar = () => {
 
   useEffect(async() =>{
     if(searchterm){
-
       const result = await dispatch(searchthunk(searchterm))
       // console.log(result)
-      console.log(searchterm)
+      // console.log(searchterm)
       if(result){
       let array = result.search_result
       setSearchBox(array)
       setSearchContainer(true)
-      console.log(searchbox,"<<<<<this is searchbox")
+      // console.log(searchbox,"<<<<<this is searchbox")
       return
       }
       setSearchBox(false)
       return
     }
 
-  },[searchterm])
+  },[searchterm,dispatch])
 
   useEffect(() => {
     if (!showMenu) return;
