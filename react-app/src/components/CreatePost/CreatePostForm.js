@@ -55,8 +55,8 @@ function CreatePost ({setModalOpen}) {
             </div>
             <div className="create_post_wrapper3">
                 {user.profile_photo ?
-                <img className='profile_pic3' src={user.profile_photo}></img>:
-                <img className='profile_pic3' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'></img>
+                <img className='profile_pic3' src={user.profile_photo} alt='User Profile pic'></img>:
+                <img className='profile_pic3' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s' alt="default profile pic"></img>
                 }
                 <div className='name_creatpost'>{user.first_name}</div>
                 <div className='name_creatpost'>{user.last_name}</div>

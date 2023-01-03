@@ -1,8 +1,7 @@
 // thunk
 
-export const presslike = (id) => async (dispatch) => {
-
-    const response = await fetch(`/api/likes/${id}`, {
+export const presslike = (id) => async () => {
+    await fetch(`/api/likes/${id}`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(id)

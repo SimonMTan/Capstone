@@ -78,7 +78,7 @@ export const deletePostThunk = (id) => async (dispatch) => {
     })
 
     if(response.ok){
-        const data = await response.json()
+        await response.json()
         dispatch(deletePost(id))
         // return data
     }

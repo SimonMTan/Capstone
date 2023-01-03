@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { presslike } from "../../store/like";
 import { getPostsThunk } from "../../store/post";
 import './Like.css'
@@ -6,7 +6,7 @@ import './Like.css'
 export default function Likeaction ({id,like}) {
 
     const dispatch = useDispatch();
-    const user = useSelector(state => state.session.user);
+    // const user = useSelector(state => state.session.user);
 
 
     const handleclick = async() => {

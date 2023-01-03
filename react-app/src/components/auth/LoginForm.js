@@ -1,6 +1,6 @@
 import React, { useState , useEffect} from 'react';
 import { useSelector, useDispatch ,  } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect} from 'react-router-dom';
 import { login } from '../../store/session';
 import './LoginForm.css'
 
@@ -12,16 +12,16 @@ const LoginForm = ({setLogin}) => {
   const [showErrors,setShowErrors] = useState(false)
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
-  let history = useHistory();
+  // let history = useHistory();
 
   function isEmpty2(str) {
     return !str.trim().length
   }
 
-  useEffect(async() => {
+  useEffect(() => {
     const err = {};
     if(!email || isEmpty2(email)) err.email = '⛔Please provide an email';
-    if(!email.toLowerCase().match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,63})$/)) err.email='⛔Please provide a valid email';
+    if(!email.toLowerCase().match(/^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,63})$/))err.email='⛔Please provide a valid email';
     if(!password || isEmpty2(password)) err.password = '⛔Please provide a password';
     setErrors(err)
   },[email,password])

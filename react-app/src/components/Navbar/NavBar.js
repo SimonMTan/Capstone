@@ -13,6 +13,7 @@ const NavBar = () => {
   const [showMenu, setShowMenu] = useState(false);
   const [searchterm,setSearchTerm] = useState("")
   const [searchbox,setSearchBox] = useState(false)
+  const [searchcontainer,setSearchContainer] = useState(false)
 
   // if(!user){
   //   return null;
@@ -23,16 +24,30 @@ const NavBar = () => {
     setShowMenu(true);
   }
 
-  const updateterm = async(e) =>{
+  const updateterm = (e) =>{
     setSearchTerm(e.target.value);
-    if(!searchterm){
-      const result = await dispatch(searchthunk(searchterm))
-      if(result){
-      setSearchBox(true)
-      console.log(result)
-      }
-    }
+    console.log(searchterm, 'this is searchterm')
+    return
   }
+
+  useEffect(async() =>{
+    if(searchterm){
+
+      const result = await dispatch(searchthunk(searchterm))
+      // console.log(result)
+      console.log(searchterm)
+      if(result){
+      let array = result.search_result
+      setSearchBox(array)
+      setSearchContainer(true)
+      console.log(searchbox,"<<<<<this is searchbox")
+      return
+      }
+      setSearchBox(false)
+      return
+    }
+
+  },[searchterm])
 
   useEffect(() => {
     if (!showMenu) return;
@@ -46,6 +61,16 @@ const NavBar = () => {
     return () => document.removeEventListener("click", closeMenu);
     }, [showMenu]);
 
+  useEffect (() => {
+    const closesearchbar = () => {
+      setSearchContainer(false)
+      // setSearchTerm('')
+    }
+    document.addEventListener('click', closesearchbar);
+    return () => document.removeEventListener("click", closesearchbar);
+
+  },[searchcontainer])
+
   const defaultpic = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'
   return (
     // <nav>
@@ -57,12 +82,24 @@ const NavBar = () => {
           <div className='searchbar'>
             <form>
               <label className='searchbar1'>
-                <input placeholder={'Search Homielist...'} type='search' value={searchterm} onChange={updateterm}>
+                <input className = 'search_input_container' placeholder={'Search Homielist...'} type='search' value={searchterm} onChange={updateterm}>
                 </input>
                 {/* <button ><i class="fa-solid fa-magnifying-glass"></i></button> */}
               </label>
             </form>
-            {searchbox ? 'hello':'hi'}
+            <div className='searchcontainer'>
+              {searchterm && searchcontainer &&
+                <div >
+                  {searchbox.length>0?<div className='search_name'>{searchbox?.map((userinfo)=>(
+                  <NavLink key={userinfo.id} to={`/users/${userinfo?.id}`} className='search_name_individual'>
+                    {userinfo?.first_name}&nbsp;{userinfo?.last_name}</NavLink>
+                    ))}
+                  </div>:
+                  <div className='search_name_noresult'>no result found!</div>
+                  }
+                </div>
+              }
+            </div>
           </div>
         </div>
 
@@ -102,7 +139,7 @@ const NavBar = () => {
               </div>
             </div>
             <div className='navbar_right'>
-              <img className='profile_pic99' onClick={openMenu} src={user?.profile_photo?user?.profile_photo:defaultpic} ></img>
+              <img className='profile_pic99' onClick={openMenu} src={user?.profile_photo?user?.profile_photo:defaultpic} alt='profile'></img>
 
               {showMenu && (
                 <LogoutButton />

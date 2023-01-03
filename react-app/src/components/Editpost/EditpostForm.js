@@ -35,8 +35,8 @@ function Editpost ({id,post,setModalOpen,setShowOption}) {
             if(msg.length > 200) err.push("Message is too long")
         }
         setErrors(err)
-        console.log(errors)
-        console.log(!img.endsWith('.png') && !img.endsWith('.jpeg') , 'checkingerror')
+        // console.log(errors)
+        // console.log(!img.endsWith('.png') && !img.endsWith('.jpeg') , 'checkingerror')
     },[msg,img,video])
 
     const handleSubmit = async (e) => {
@@ -63,8 +63,8 @@ function Editpost ({id,post,setModalOpen,setShowOption}) {
             <h1 className='editpost'>Edit post</h1>
             <div className="editpost_wrapper2">
                 {user.profile_photo ?
-                <img className='profile_pic3' src={user.profile_photo}></img>:
-                <img className='profile_pic3' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'></img>
+                <img className='profile_pic3' src={user.profile_photo} alt='user profile pic'></img>:
+                <img className='profile_pic3' src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s' alt="default profile pic"></img>
                 }
                 <div className="name99">{user.first_name}</div>
                 <div className="name99">{user.last_name}</div>

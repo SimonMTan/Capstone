@@ -8,13 +8,14 @@ const searchaction = (searchresult) => ({
 
 //thunk
 export const searchthunk = (searchterm) => async(dispatch) =>{
-    const response = await fetch(`/api/search/q?${searchterm}`)
+    const response = await fetch(`/api/search/top?q=${searchterm}`)
+    console.log(response,"this is response from thunk")
     if(response.ok){
         const data = await response.json()
         dispatch(searchaction(data))
         return data
     }
-    return 
+    return
 }
 
 const searchreducer = (state = {},action) =>{

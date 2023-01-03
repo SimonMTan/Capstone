@@ -38,7 +38,7 @@ function User() {
       <NavBar />
       <div className='userPage'>
         {user.cover_photo ?
-        <img className='cover_photo' src={user.cover_photo} alt='cover photo'/> :
+        <img className='cover_photo' src={user.cover_photo} alt=''/> :
         <div className='default_cover_photo'></div>}
         {user.profile_photo?
         <img className='profile_pic2' src={user.profile_photo} alt="profile pic" /> :
