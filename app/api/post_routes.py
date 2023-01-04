@@ -14,13 +14,15 @@ def validation_errors(validation_errors):
 
 post_routes = Blueprint('posts', __name__)
 
-# GET all posts for current users
+# GET all posts
 @post_routes.route('/')
 # @login_required
 def posts():
     posts = Post.query.all()
     # print(posts, '<<<<<<<<<<<<<<<<this is posts>>>>>>>>')
     return {"posts": [post.to_dict() for post in posts]}
+
+
 
 #Create a post
 @post_routes.route('/', methods=['POST'])
@@ -63,6 +65,15 @@ def create_post():
     # db.session.add(new_image)
     # db.session.commit()
     # return {"url": url}
+
+
+# #all post by current user
+# @post_routes.route('/<int:id>')
+# @login_required
+# def user_post(id):
+#     post = Post.query.filter(user.id == id)
+#     return {"post": post}
+
 
 #Edit a post
 @post_routes.route('/<int:id>', methods=['PUT'])

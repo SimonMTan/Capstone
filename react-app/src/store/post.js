@@ -1,6 +1,7 @@
 //const
 const CREATE_POST = 'post/CREATE_POST';
 const GET_POSTS = 'post/GET_POSTS';
+const GET_USER_POSTS = 'post/GET_USER_POSTS';
 const EDIT_POST = 'post/EDIT_POST';
 const DELETE_POST = 'post/DELETE_POST';
 
@@ -9,6 +10,11 @@ const getPosts = (user) => ({
     type: GET_POSTS,
     payload:user
 })
+
+// const getuserPosts = (user) =>({
+//     type: GET_USER_POSTS,
+//     payload:user
+// })
 
 const createPost = (post) => ({
     type: CREATE_POST,
@@ -37,6 +43,15 @@ export const getPostsThunk = () => async (dispatch) => {
     }
     return
 }
+
+// export const getuserPostsThunk = (id) => async (dispatch) => {
+//     const response = await fetch(`/api/posts/${id}`)
+//     // console.log(response, 'this is responsesssss')
+//     if (response.ok) {
+//         const data = await response.json()
+//         // console.log(data, 'this is data from thunk')
+//     }
+// }
 
 export const createPostThunk = (info) => async (dispatch) => {
     // console.log(info, 'thisisinsidepostthunk')
