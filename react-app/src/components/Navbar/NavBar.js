@@ -7,17 +7,15 @@ import Home from '../Logo/home1.png'
 import './Navbar.css';
 import { searchthunk } from '../../store/search';
 
+
 const NavBar = () => {
   const dispatch = useDispatch()
+
   const user = useSelector(state => state.session.user);
   const [showMenu, setShowMenu] = useState(false);
   const [searchterm,setSearchTerm] = useState("")
   const [searchbox,setSearchBox] = useState(false)
   const [searchcontainer,setSearchContainer] = useState(false)
-
-  // if(!user){
-  //   return null;
-  // }
 
   const openMenu = () => {
     if(showMenu) return;
@@ -26,7 +24,7 @@ const NavBar = () => {
 
   const updateterm = (e) =>{
     setSearchTerm(e.target.value);
-    console.log(searchterm, 'this is searchterm')
+    // console.log(searchterm, 'this is searchte.rm')
     return
   }
 
@@ -102,14 +100,14 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className='navbar_mid'>
+        <div className='navbar_mid' Id='myDIV'>
           {/* <div > */}
             <NavLink className='navbar_mid_left active2' to='/' exact={true} activeClassName='active'>
               <img id="icon2" src={Home} alt="homeLogo"></img>
             </NavLink>
           {/* </div> */}
           {/* <div> */}
-            <NavLink className='navbar_mid_left' to={`/users/${user?.id}`} exact={true} activeClassName='active'>
+            <NavLink className='navbar_mid_left' to={`/users/${user?.id}`} exact={true} activeClassName='active' >
             <i id="icon2" src={Home} alt="profileLogo" class="fa-regular fa-user"></i>
             </NavLink>
           {/* </div> */}

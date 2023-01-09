@@ -105,9 +105,9 @@ function User() {
                   </div>
               </div>
               <div className="msg">{post.post_msg}</div>
-              {post.post_img ?<img alt='' width={'680'} height='600px' src={post.post_img} onError={(e) => e.target.src = defaultimg}></img>: null}
+              {post.post_img ?<img className='pic_container' alt='' width={'740'} height='600px' src={post.post_img} onError={(e) => e.target.src = defaultimg}></img>: null}
               {post.post_video ?
-              <video key={post.post_video} width='680px' height='600px' controls src={post.post_video} onError={(e) => e.target.src = defaultvideo} type="video/mp4">
+              <video className='videocontainer' key={post.post_video} width='700px' height='600px' controls src={post.post_video} onError={(e) => e.target.src = defaultvideo} type="video/mp4" >
                   {/* <source >
                   </source> */}
               </video>: null

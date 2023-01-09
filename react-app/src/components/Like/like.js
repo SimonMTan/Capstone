@@ -17,8 +17,8 @@ export default function Likeaction ({id,like}) {
         // <div>
             <div className="clickareamain" onClick={handleclick} >
                 {like?
-                <div className="clickarea"><i class="fa-solid fa-thumbs-up"></i>&nbsp;like</div>:
-                <div className="clickarea"><i class="fa-regular fa-thumbs-up"></i>&nbsp;like</div>}
+                <div className="clickarea"><i className='thumbicon' class="fa-solid fa-thumbs-up"></i>&nbsp;like</div>:
+                <div className="clickarea"><i className='thumbicon' class="fa-regular fa-thumbs-up"></i>&nbsp;like</div>}
             </div>
         // </div>
     )

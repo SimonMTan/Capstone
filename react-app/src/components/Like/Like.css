@@ -3,6 +3,7 @@
     /* align-items: center;
     align-content: center; */
     text-align: center;
+    /* transition: width 2s, height 2s, transform 5s; */
 }
 
 .clickareamain{
@@ -10,4 +11,12 @@
     /* align-items: center;
     align-content: center;
     text-align: center; */
+}
+
+.thumbicon:hover{
+    transform:rotate(-45deg) ;
+}
+
+.thumbicon:active{
+    transform:rotate(-45deg) ;
 }
