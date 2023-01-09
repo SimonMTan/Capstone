@@ -118,7 +118,7 @@
 
 .posts{
     width:750px;
-    height:150px;
+    height:max-content;
     margin: 10px;
     margin-bottom: 20px;
     background-color: white !important;
