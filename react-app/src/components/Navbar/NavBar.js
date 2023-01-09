@@ -73,7 +73,7 @@ const NavBar = () => {
     // <nav>
       <div className='navbar_wrapper'>
         <div className='navbar_left'>
-          <NavLink className='Logo' to='/' exact={true} >
+          <NavLink className='Logo' to='/' exact={true} activeClassName='active222' >
             <img id="icon" src={HomieLogo} alt="Logo"></img>
           </NavLink>
           <div className='searchbar'>

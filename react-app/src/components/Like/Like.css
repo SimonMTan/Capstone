@@ -20,3 +20,24 @@
 .thumbicon:active{
     transform:rotate(-45deg) ;
 }
+
+/*
+.clickarea:active .fa-thumbs-up{
+    animation: animation 10s ease-in 3s;
+
+}
+
+@keyframes animation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.1) rotate(-45deg);
+
+  }
+
+  100% {
+    transform: scale(1);
+  }
+} */
