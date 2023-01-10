@@ -32,7 +32,7 @@
     height:30px;
     padding:5px;
     margin-left: 5px;
-
+    margin-top:5px;
 }
 
 .create_post{
@@ -88,14 +88,18 @@
 
 
 .name{
-    margin-left: 10px;
-    margin-top:5px;
+    margin-left: 8px;
+    padding-top:13px;
 
 }
 
 .option{
     position:relative;
     margin-right:5px;
+}
+
+.threedotsoptions:hover{
+    cursor: pointer;
 }
 
 .option2{
@@ -141,6 +145,27 @@
     padding-bottom: 10px;
     margin-top:10px;
     margin-bottom:10px;
+    padding-left:5px;
+}
+
+.likeandcomment{
+    display:flex;
+    justify-content: space-between;
+    margin-top:15px;
+    margin-bottom:10px;
+    padding-top: 5px;
+    padding-left:5px;
+    padding-right:5px;
+    /* border-top: 1px solid #CED0D4; */
+    /* border-bottom:1px solid #CED0D4 ; */
+}
+
+.like_container{
+    display:flex;
+}
+
+.likeicon{
+    margin-right:5px;
 }
 
 .likeorcomment{
@@ -163,9 +188,34 @@
     justify-content: center;
     font-size: 18px;
     color:#65676B;
+    transition: width 2s, height 2s, transform 5s;
+    /* transition-delay: 5seconds; */
+}
+
+/* .like:active, .like:hover{
+    transform: rotate(-45deg) ;
+    color:blue !important;
+    transition-delay: 5seconds;
+} */
+
+.liked{
+    display:flex;
+    width:48%;
+    height:100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color:#0571ED;
+    /* transition: width 2s, height 2s, transform 2s; */
 }
 
 .like:hover{
+    background-color: #F0F2F5;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.liked:hover{
     background-color: #F0F2F5;
     border-radius: 10px;
     cursor: pointer;

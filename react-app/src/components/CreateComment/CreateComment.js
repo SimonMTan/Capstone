@@ -1,5 +1,5 @@
 import { useState ,useEffect} from "react"
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import {createCommentThunk} from '../../store/comment'
 import { getPostsThunk } from "../../store/post"
 import './createcomment.css'

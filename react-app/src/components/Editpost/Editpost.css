@@ -6,7 +6,7 @@ textarea{
 .profile_pic3 {
     border-radius: 50%;
     width: 40px;
-
+    margin:5px;
 }
 
 .editpostform_wrapper{
@@ -42,7 +42,7 @@ textarea{
 .textarea99{
     font-size:22px;
     width:410px;
-    height:max-content;
+    height:150px;
     padding-left:10px;
     margin-top:10px;
     margin-bottom:10px;

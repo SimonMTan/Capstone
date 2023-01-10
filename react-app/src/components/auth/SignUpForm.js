@@ -21,7 +21,7 @@ const SignUpForm = ({setLogin}) => {
   }
 
 
-  useEffect(async() => {
+  useEffect(() => {
     const err = {};
     if(!firstname || isEmpty2(firstname)) err.firstname = '⛔Please provide a firstname';
     if(!lastname || isEmpty2(lastname)) err.lastname = '⛔Please provide a lastname';

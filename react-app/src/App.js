@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
-import NavBar from './components/Navbar/NavBar';
+// import LoginForm from './components/auth/LoginForm';
+// import SignUpForm from './components/auth/SignUpForm';
+// import NavBar from './components/Navbar/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
+// import UsersList from './components/UsersList';
 import User from './components/User';
-import NewsFeed from './components/NewsFeed';
+// import NewsFeed from './components/NewsFeed';
 import { authenticate } from './store/session';
 import HomePage from './components/Home/HomePage';
+// import NavBar from './components/Navbar/NavBar';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -28,7 +29,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
+
       <Switch>
         {/* <Route path='/login' exact={true}>
           <LoginForm />
@@ -40,6 +41,7 @@ function App() {
           <UsersList/>
         </ProtectedRoute> */}
         <ProtectedRoute path='/users/:userId' exact={true} >
+          {/* <NavBar /> */}
           <User />
         </ProtectedRoute>
         {/* <Route path='/help'>
