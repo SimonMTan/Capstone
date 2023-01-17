@@ -63,7 +63,7 @@ export const createPostThunk = (info) => async (dispatch) => {
     // console.log(response, 'this is response from create thunk')
     if(response.ok){
         const data = await response.json()
-        console.log(data, 'this is data from createThunk')
+        // console.log(data, 'this is data from createThunk')
         dispatch(createPost(data))
         return data
     }
@@ -79,7 +79,7 @@ export const editPostThunk = (info,id) => async (dispatch) => {
     // console.log(response,info,id, 'this is response from thunk')
     if(response.ok){
         const data = await response.json()
-        console.log(data)
+        // console.log(data)
         dispatch(editPost(data))
         return data
     }
@@ -87,7 +87,7 @@ export const editPostThunk = (info,id) => async (dispatch) => {
 }
 
 export const deletePostThunk = (id) => async (dispatch) => {
-    console.log(id,'this is id from thunk')
+    // console.log(id,'this is id from thunk')
     const response = await fetch(`/api/posts/${id}`, {
         method: 'DELETE'
     })
@@ -123,7 +123,7 @@ export default function postReducer(state = initialState, action) {
             return newState
         case DELETE_POST:
             newState = {...state}
-            console.log(action.payload, 'this is action.payload')
+            // console.log(action.payload, 'this is action.payload')
             delete newState[action.payload]
             return newState
         default:

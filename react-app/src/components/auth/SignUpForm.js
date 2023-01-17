@@ -44,10 +44,10 @@ const SignUpForm = ({setLogin}) => {
     // console.log('where is the errors',errors)
     let arrerr = Object.values(errors)
     if (password === repeatPassword && arrerr.length <1) {
-      console.log('this is working too?',username, email, password,firstname,lastname )
+      // console.log('this is working too?',username, email, password,firstname,lastname )
       const data = await dispatch(signUp(username, email, password,firstname,lastname));
       if (data) {
-        console.log(data)
+        // console.log(data)
         const errs = {};
         for (let error of data){
           if(error.startsWith('username')) errs.username = '⛔Username already taken';
