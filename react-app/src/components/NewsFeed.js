@@ -21,7 +21,7 @@ function NewsFeed () {
     for(let i = allposts.length - 1; i >= 0; i--) {
         flipPosts.push(allposts[i])
     }
-    console.log(allposts, 'this is allposts')
+    // console.log(allposts, 'this is allposts')
     // const comment = useSelector(state => state.comment);
     const[showoption2, setShowoption2] = useState(false)
     const[showEdit,setShowEdit] = useState(true)

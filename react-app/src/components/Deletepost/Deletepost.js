@@ -4,7 +4,7 @@ import { deletePostThunk,getPostsThunk } from '../../store/post'
 
 export default function Deletepost ({id,setShowOption}){
     let postid = id
-    console.log(postid)
+    // console.log(postid)
 
     const dispatch = useDispatch()
 

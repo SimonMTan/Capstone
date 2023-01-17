@@ -27,11 +27,11 @@ function User() {
   const posts = useSelector(state => state.post);
   const loginuser = useSelector(state => state.session.user);
 
-  console.log(loginuser, 'this is loginuser')
+  // console.log(loginuser, 'this is loginuser')
   const allposts = Object.values(posts)
-  console.log(allposts,"allpostsbefore filtering");
+  // console.log(allposts,"allpostsbefore filtering");
   const filterposts = allposts.filter(post => post.user_id == userId)
-  console.log(filterposts, '$$$$ filtered posts $$$$');
+  // console.log(filterposts, '$$$$ filtered posts $$$$');
 
   const defaultpic = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'
   const defaultimg =  'https://bemyeyes-assets.s3.amazonaws.com/podcasts/smm/podcast-cover-Cats.jpg'
@@ -45,7 +45,7 @@ function User() {
       await dispatch(getPostsThunk());
       const response = await fetch(`/api/users/${userId}`);
       const user = await response.json();
-      console.log(user,'this is user from user page')
+      // console.log(user,'this is user from user page')
       setUser(user);
     })();
   }, [userId]);

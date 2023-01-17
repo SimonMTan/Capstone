@@ -7,11 +7,11 @@ import {getPostsThunk} from '../../store/post'
 
 function Editpost ({id,post,setModalOpen,setShowOption}) {
     const dispatch = useDispatch()
-    console.log(post, 'this is post from editpost')
+    // console.log(post, 'this is post from editpost')
     // if(!post.post_msg) post.post_msg = ''
     // if(!post.post_img) post.post_msg = ''
     // if(!post.post_video) post.post_msg = ''
-    console.log(post, 'after reassigning post_msg, post_img, post_video')
+    // console.log(post, 'after reassigning post_msg, post_img, post_video')
     const [msg , setMsg] = useState(post.post_msg? post.post_msg : '')
     const [img , setImg] = useState(post.post_img? post.post_img : '')
     const [video , setVideo] = useState(post.post_video? post.post_video : '')
@@ -72,7 +72,7 @@ function Editpost ({id,post,setModalOpen,setShowOption}) {
             <form onSubmit={handleSubmit}>
                 <div>
                     <textarea className='textarea99'
-                    type="text" value={msg} onChange={(e) => setMsg(e.target.value)}>
+                    type="text" autoFocus={True} value={msg} onChange={(e) => setMsg(e.target.value)}>
                     </textarea>
                     {/* <label>Message Link</label> */}
                 </div>

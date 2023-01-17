@@ -32,7 +32,7 @@ function CreatePost ({setModalOpen}) {
     },[msg,img,video])
 
     const handleSubmit = async (e) => {
-        console.log('submit')
+        // console.log('submit')
         e.preventDefault();
         if(errors.length > 0) {
             setDisplayErrors(true)
