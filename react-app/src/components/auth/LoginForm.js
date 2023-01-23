@@ -37,7 +37,7 @@ const LoginForm = ({setLogin}) => {
         const errs = {};
         for (let error of data){
           if(error.startsWith('email')) errs.email = '⛔Incorrect Email';
-          if(error.startsWith('password')) errs.password = '⛔Incorrect password';
+          if(error.startsWith('password')) errs.password = '⛔Incorrect Password';
         }
         setShowErrors(true)
         setErrors(errs)
