@@ -168,9 +168,9 @@ const SignUpForm = ({setLogin}) => {
         <div className='signup_button'>
           <button className='signup_button2'type='submit'>Sign Up</button>
         </div>
-        <div>-----------------------------------------------</div>
-        <div className='already_lable'>Already have an account?</div>
-        <div className='Loginlink' onClick={()=>setLogin(true)}> ▶ Log in here! ◀ </div>
+        <div>----------------------------------------------------------</div>
+        {/* <div className='already_lable'></div> */}
+        <div className='Loginlink' onClick={()=>setLogin(true)}> Already have an account ? </div>
       </form>
     </div>
   );

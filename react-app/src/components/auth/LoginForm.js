@@ -101,10 +101,10 @@ const LoginForm = ({setLogin}) => {
             setEmail('demo@aa.io')
             setPassword('password')
             }}>
-              Demo users?
+              Demo user
           </button>
         </div>
-        <div>-----------------------------------------------</div>
+        <div>----------------------------------------------------------</div>
         <button className='newuser123' onClick={()=>setLogin(false)}>Create new account</button>
       </form>
     </div>

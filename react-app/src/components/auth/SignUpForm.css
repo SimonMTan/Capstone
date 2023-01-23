@@ -41,22 +41,26 @@
     background-color:  #1877F2;
     border-radius: 8px;
     border: 1px solid white;
-    margin-bottom: 20px;
+    margin-top:20px;
+    margin-bottom: 10px;
 }
 
 .signup_button2:hover{
     cursor: pointer;
 }
 
-.already_lable{
-    margin-top:10px;
+/* .already_lable{
+
     margin-bottom:10px;
-}
+} */
 .Loginlink{
+    margin-top:10px;
     margin-bottom: 20px;
-    color:#1877F2
+    color:#1877F2;
+    font-size: 13px;
 }
 
 .Loginlink:hover{
     cursor: pointer;
+    text-decoration: underline;
 }
