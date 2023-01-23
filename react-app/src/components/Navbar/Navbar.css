@@ -1,6 +1,10 @@
 .navbar_wrapper{
     display:flex;
     justify-content:space-between;
+    position: sticky;
+    top:0px;
+    background-color: white;
+    z-index: 50;
 }
 
 .navbar_mid{
