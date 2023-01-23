@@ -31,7 +31,7 @@ function User() {
   const allposts = Object.values(posts)
   // console.log(allposts,"allpostsbefore filtering");
   const filterposts = allposts.filter(post => post.user_id == userId)
-  // console.log(filterposts, '$$$$ filtered posts $$$$');
+  console.log(filterposts, '$$$$ filtered posts $$$$');
 
   const defaultpic = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSLQnINoRpzBMeS82Re1CjVCAQS12Zx-EaWZYz5ZYg&s'
   const defaultimg = 'https://bemyeyes-assets.s3.amazonaws.com/podcasts/smm/podcast-cover-Cats.jpg'
@@ -63,7 +63,9 @@ function User() {
         <div className='userPage'>
           {user.cover_photo ?
             <img className='cover_photo' src={user.cover_photo} alt='' /> :
-            <img className='cover_photo' src='https://imgur.com/ukzX2Tf.png' alt='' />}
+            // <img  src='https://imgur.com/ukzX2Tf.png' alt='' />
+            <div className='cover_photo_empty'></div>
+            }
         </div>
         <div className='profilepic_name'>
           {user.profile_photo ?
@@ -105,7 +107,7 @@ function User() {
               </div>
             </div>
               <div className="msg">{post.post_msg}</div>
-              {post.post_img ? <img className='pic_container' alt='' width={'740'} height='600px' src={post.post_img} onError={(e) => e.target.src = defaultimg}></img> : null}
+              {post.post_img ? <img className='pic_container' alt='' width={'700'} height='600px' src={post.post_img} onError={(e) => e.target.src = defaultimg}></img> : null}
               {post.post_video ?
                 <video className='videocontainer' key={post.post_video} width='700px' height='600px' controls src={post.post_video} onError={(e) => e.target.src = defaultvideo} type="video/mp4" >
                   {/* <source >
@@ -178,8 +180,10 @@ function User() {
                     <CreateComments post={post} />
                   </div>
                 </div>
-              </div> </div>))
-              }
+              </div>
+            </div>))}
+            {filterposts.length == 0 && <div className='posts_empty'>
+              No posts to display!</div>}
           </div>
         </div>
       </div>

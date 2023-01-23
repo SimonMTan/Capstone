@@ -72,7 +72,7 @@ function Editpost ({id,post,setModalOpen,setShowOption}) {
             <form onSubmit={handleSubmit}>
                 <div>
                     <textarea className='textarea99'
-                    type="text" autoFocus={True} value={msg} onChange={(e) => setMsg(e.target.value)}>
+                    type="text" value={msg} onChange={(e) => setMsg(e.target.value)}>
                     </textarea>
                     {/* <label>Message Link</label> */}
                 </div>

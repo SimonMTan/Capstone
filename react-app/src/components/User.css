@@ -3,8 +3,18 @@
     height:462px;
     object-fit: cover;
     /* object-position: center bottom; */
-    border-radius: 7px;
+    border-radius:0 0 7px 7px;
     /* box-shadow: 2px 2px 2px #E4E6EB; */
+}
+
+.cover_photo_empty{
+    width:1250px;
+    height:462px;
+    object-fit: cover;
+    border-radius:0 0 7px 7px;
+    /* border: 1px solid white; */
+    /* background: rgb(255,252,252); */
+    background: linear-gradient(180deg, rgba(255,252,252,1) 35%, rgba(162,165,166,1) 100%);
 }
 
 .default_cover_photo{
@@ -93,6 +103,8 @@
     margin-top: 10px;
     margin-bottom: 10px;
     padding:8px;
+    position:sticky;
+    top:2px;
 }
 
 .introtitle{
@@ -127,6 +139,16 @@
     padding:8px;
 }
 
+.posts_empty{
+    width:750px;
+    height:50px;
+    margin: 10px;
+    margin-bottom: 20px;
+    background-color: white !important;
+    border-radius: 7px;
+    box-shadow: 2px 2px 2px #E4E6EB;
+    padding:8px;
+}
 .profile_pic_wrapper_profile{
     width:750px;
     height:55px;
