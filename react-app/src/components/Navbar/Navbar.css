@@ -105,6 +105,9 @@
     margin-right: 5px;
     margin-left: 5px;
 }
+.profile_pic99:hover{
+    cursor: pointer;
+}
 
 .navbar_right{
     position:relative
